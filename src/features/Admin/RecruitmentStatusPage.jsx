@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import RecruitmentStatusCard from "../features/RecruitmentStatus/RecruitmentStatusCards";  // Import the card component
-import { getRecruitmentStatus } from "../services/RecruitmentStatusService";  // Service to fetch data
+import RecruitmentStatusCard from "../Student/RecruitmentStatusCards";  // Import the card component
+import { getRecruitmentStatus } from "../../services/RecruitmentStatusService";  // Service to fetch data
 
 const RecruitmentStatusPage = () => {
   const [status, setStatus] = useState({
@@ -25,7 +25,6 @@ const RecruitmentStatusPage = () => {
 
   return (
     <div className="recruitment-status-page">
-      <h1>Recruitment Status</h1>
       <div className="status-container">
         <RecruitmentStatusCard
           title="Total Interviews"

@@ -20,32 +20,32 @@ const Interviews = () => {
     };
 
     return (
-        <div>
-            <h2>Schedule Interview</h2>
-            <form onSubmit={handleSchedule}>
-                <input
-                    type="text"
-                    placeholder="Application ID"
-                    value={interview.applicationId}
-                    onChange={(e) => setInterview({ ...interview, applicationId: e.target.value })}
-                    required
-                />
-                <input
-                    type="datetime-local"
-                    value={interview.date}
-                    onChange={(e) => setInterview({ ...interview, date: e.target.value })}
-                    required
-                />
-                <input
-                    type="text"
-                    placeholder="Location"
-                    value={interview.location}
-                    onChange={(e) => setInterview({ ...interview, location: e.target.value })}
-                    required
-                />
-                <button type="submit">Schedule Interview</button>
-            </form>
-        </div>
+        <div className="interviews-container">
+        <form onSubmit={handleSchedule}>
+          <input
+            type="text"
+            placeholder="Application ID"
+            value={interview.applicationId}
+            onChange={(e) => setInterview({ ...interview, applicationId: e.target.value })}
+            required
+          />
+          <input
+            type="datetime-local"
+            value={interview.date}
+            onChange={(e) => setInterview({ ...interview, date: e.target.value })}
+            required
+          />
+          <input
+            type="text"
+            placeholder="Location"
+            value={interview.location}
+            onChange={(e) => setInterview({ ...interview, location: e.target.value })}
+            required
+          />
+          <button type="submit">Schedule Interview</button>
+        </form>
+      </div>
+      
     );
 };
 

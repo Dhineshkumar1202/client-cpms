@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
 
+
 const Signup = () => {
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
   const navigate = useNavigate(); 
@@ -22,8 +23,9 @@ const Signup = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="signup-container">
+      <form className="signup-form" onSubmit={handleSubmit}>
+        <h2>Sign Up</h2>
         <input
           name="name"
           type="text"
@@ -46,11 +48,11 @@ const Signup = () => {
           required
         />
         <button type="submit">Sign Up</button>
+        <p>
+          Already have an account?{" "}
+          <a href="/login">Login here</a> {/* Link to login */}
+        </p>
       </form>
-      <p>
-        Already have an account?{" "}
-        <a href="/login">Login here</a> {/* Link to login */}
-      </p>
     </div>
   );
 };

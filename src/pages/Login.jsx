@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
+import { useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
+
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -12,19 +13,26 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
     try {
       const response = await axios.post('http://localhost:5000/api/students/login', formData);
-      localStorage.setItem('token', response.data.token); // Store JWT token
-      alert(response.data.message);
-      navigate('/dashboard'); // Redirect to dashboard after successful login
+  
+     
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('role', response.data.role); 
+  
+      alert('Login successful!');
+      navigate('/dashboard/student'); 
     } catch (error) {
       alert(error.response?.data?.message || 'Error occurred');
     }
   };
+  
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="login-container">
+      <form className="login-form" onSubmit={handleSubmit}>
+        <h2>Log In</h2>
         <input
           name="email"
           type="email"
@@ -40,11 +48,11 @@ const Login = () => {
           required
         />
         <button type="submit">Log In</button>
+        <p>
+          Don't have an account?{" "}
+          <a href="/signup">Sign up here</a> {/* Link to signup */}
+        </p>
       </form>
-      <p>
-        Don't have an account?{" "}
-        <a href="/signup">Sign up here</a> {/* Link to signup */}
-      </p>
     </div>
   );
 };
