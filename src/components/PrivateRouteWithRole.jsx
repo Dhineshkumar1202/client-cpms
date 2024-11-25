@@ -1,20 +1,19 @@
 import React from 'react';
-import { Route, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
-const PrivateRouteWithRole = ({ element, allowedRole, ...rest }) => {
-  const token = localStorage.getItem('token');
-  const userRole = localStorage.getItem('role'); 
+const PrivateRouteWithRole = ({ element, allowedRole }) => {
+  const { isAuthenticated, role } = useAuth();
 
-  if (!token) {
+  if (!isAuthenticated) {
     return <Navigate to="/login" />;
   }
 
-  
-  if (userRole !== allowedRole) {
+  if (role !== allowedRole) {
     return <Navigate to="/" />; 
   }
 
-  return <Route {...rest} element={element} />;
+  return element;
 };
 
 export default PrivateRouteWithRole;

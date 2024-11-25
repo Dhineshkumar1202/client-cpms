@@ -1,7 +1,7 @@
 import React from 'react';
-import AcademicRecords from './AcademicRecords';
-import PlacementDriveReport from './PlacementDriveReport';
-import RecruitmentStatusPage from './RecruitmentStatusPage';
+import AcademicRecords from '../features/Admin/AcademicRecords';
+import PlacementDriveReport from '../features/Admin/PlacementDreiveReport';
+import RecruitmentStatusPage from '../features/Admin/RecruitmentStatusPage';
 
 const AdminDashboardPage = () => {
   return (

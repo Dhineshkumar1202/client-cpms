@@ -1,57 +1,85 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
-
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const Login = () => {
-  const [formData, setFormData] = useState({ email: '', password: '' });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { setAuthState } = useAuth(); 
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  // Redirect if user is already logged in
+  React.useEffect(() => {
+    if (localStorage.getItem("token")) {
+      const role = localStorage.getItem("role");
+      if (role === "student") navigate("/dashboard/student");
+      else if (role === "admin") navigate("/dashboard/admin");
+      else if (role === "company") navigate("/dashboard/company");
+    }
+  }, [navigate]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-  
+  const handleLogin = async (email, password) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/students/login', formData);
-  
-     
-      localStorage.setItem('token', response.data.token);
-      localStorage.setItem('role', response.data.role); 
-  
-      alert('Login successful!');
-      navigate('/dashboard/student'); 
+      console.log("Sending payload:", { email, password });
+      const response = await axios.post("http://localhost:5000/api/students/login", { email, password });
+      console.log("Response received:", response.data);
+
+      const { token, role } = response.data;
+
+      if (!role) {
+        throw new Error("Role is missing from the response");
+      }
+
+      // Store the token and role in localStorage
+      localStorage.setItem("token", token);
+      localStorage.setItem("role", role);
+
+      // Update authentication state
+      setAuthState({ isAuthenticated: true, role });
+
+      // Redirect based on role
+      if (role === "student") {
+        navigate("/dashboard/student");
+      } else if (role === "admin") {
+        navigate("/dashboard/admin");
+      } else if (role === "company") {
+        navigate("/dashboard/company");
+      }
     } catch (error) {
-      alert(error.response?.data?.message || 'Error occurred');
+      console.error("Login failed:", error.response?.data || error.message);
+      alert("Invalid credentials");
     }
   };
-  
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleLogin(email, password);
+  };
 
   return (
-    <div className="login-container">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Log In</h2>
-        <input
-          name="email"
-          type="email"
-          placeholder="Email"
-          onChange={handleChange}
-          required
-        />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">Log In</button>
-        <p>
-          Don't have an account?{" "}
-          <a href="/signup">Sign up here</a> {/* Link to signup */}
-        </p>
+    <div>
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Email</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit">Login</button>
       </form>
     </div>
   );

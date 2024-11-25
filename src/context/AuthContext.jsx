@@ -1,18 +1,17 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useState, useContext } from "react";
 
 const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
-  const [authState, setAuthState] = useState({
-    isAuthenticated: !!localStorage.getItem("token"),
-    role: localStorage.getItem("role"), // Example: "student", "admin", or "company"
-  });
+export const useAuth = () => useContext(AuthContext);
+
+const AuthProvider = ({ children }) => {
+  const [authState, setAuthState] = useState({ isAuthenticated: false, role: "" });
 
   return (
-    <AuthContext.Provider value={authState}>
+    <AuthContext.Provider value={{ authState, setAuthState }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-export const useAuth = () => useContext(AuthContext);
+export default AuthProvider;
