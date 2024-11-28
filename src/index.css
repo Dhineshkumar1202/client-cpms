@@ -198,107 +198,104 @@ p {
     font-size: 1rem;
   }
 }
+/* index.css */
 
-/* General Styles for Login Form */
-.login-container {
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f4f8; /* Light gray background for a clean look */
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-color: #f4f4f9;
-  padding: 20px;
+  height: 100vh;
 }
 
-.login-form {
-  background-color: white;
-  padding: 30px;
+/* Login Form Container */
+div {
+  background-color: #ffffff; /* White background for the form */
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 20px 30px;
   max-width: 400px;
+  width: 100%;
 }
 
-.login-form h2 {
+/* Form Title */
+h2 {
   text-align: center;
   margin-bottom: 20px;
-  color: #333;
+  font-size: 24px;
+  color: #333333; /* Dark text for better readability */
 }
 
-.login-form input {
-  width: 100%;
-  padding: 12px;
+/* Form Fields */
+form > div {
   margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
 }
 
-.login-form button {
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #555555;
+}
+
+input {
   width: 100%;
-  padding: 12px;
-  background-color: #4CAF50;
-  color: white;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #007bff; /* Blue outline on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Submit Button */
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff; /* Primary blue color */
+  color: #ffffff;
   border: none;
-  border-radius: 5px;
-  font-size: 1.1rem;
+  border-radius: 4px;
+  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
-.login-form button:hover {
-  background-color: #45a049;
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
 }
 
-.login-form p {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #555;
+button:focus {
+  outline: none;
 }
 
-.login-form a {
-  color: #4CAF50;
-  text-decoration: none;
-}
-
-.login-form a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .login-form {
-    padding: 20px;
-    width: 90%;
-  }
-
-  .login-form h2 {
-    font-size: 1.5rem;
-  }
-
-  .login-form input {
-    font-size: 1rem;
-    padding: 10px;
-  }
-
-  .login-form button {
-    font-size: 1rem;
-    padding: 10px;
-  }
-}
-
+/* Responsive Design */
 @media (max-width: 480px) {
-  .login-form h2 {
-    font-size: 1.2rem;
+  div {
+    padding: 15px;
   }
 
-  .login-form input {
-    font-size: 0.9rem;
+  h2 {
+    font-size: 20px;
   }
 
-  .login-form button {
-    font-size: 1rem;
+  button {
+    font-size: 14px;
   }
 }
+
 /* Global Styles */
 *,
 *::before,

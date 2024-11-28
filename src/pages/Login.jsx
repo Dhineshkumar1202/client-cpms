@@ -1,44 +1,28 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import axios from "axios";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const { setAuthState } = useAuth(); 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { setAuthState } = useAuth();
   const navigate = useNavigate();
 
-  // Redirect if user is already logged in
-  React.useEffect(() => {
-    if (localStorage.getItem("token")) {
-      const role = localStorage.getItem("role");
-      if (role === "student") navigate("/dashboard/student");
-      else if (role === "admin") navigate("/dashboard/admin");
-      else if (role === "company") navigate("/dashboard/company");
-    }
-  }, [navigate]);
-
-  const handleLogin = async (email, password) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      console.log("Sending payload:", { email, password });
       const response = await axios.post("http://localhost:5000/api/students/login", { email, password });
-      console.log("Response received:", response.data);
-
       const { token, role } = response.data;
 
-      if (!role) {
-        throw new Error("Role is missing from the response");
-      }
-
-      // Store the token and role in localStorage
+      // Save token and role to localStorage
       localStorage.setItem("token", token);
       localStorage.setItem("role", role);
 
-      // Update authentication state
+      // Update auth state
       setAuthState({ isAuthenticated: true, role });
 
-      // Redirect based on role
+      // Redirect to the appropriate dashboard
       if (role === "student") {
         navigate("/dashboard/student");
       } else if (role === "admin") {
@@ -52,17 +36,12 @@ const Login = () => {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    handleLogin(email, password);
-  };
-
   return (
     <div>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Email</label>
+          <label>Email:</label>
           <input
             type="email"
             value={email}
@@ -71,7 +50,7 @@ const Login = () => {
           />
         </div>
         <div>
-          <label>Password</label>
+          <label>Password:</label>
           <input
             type="password"
             value={password}
