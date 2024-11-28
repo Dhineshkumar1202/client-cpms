@@ -15,14 +15,13 @@ const Navbar = () => {
         <h1>Welcome to Student Dashboard</h1>
       </div>
 
-      {/* Hamburger Menu Icon */}
       <div className="navbar-toggle" onClick={toggleMenu}>
         <span className="navbar-toggle-bar"></span>
         <span className="navbar-toggle-bar"></span>
         <span className="navbar-toggle-bar"></span>
       </div>
 
-      {/* Links */}
+ 
       <div className={`navbar-links ${isMobile ? 'active' : ''}`}>
         <a onClick={() => navigate('/home')}>Home</a>
         <a onClick={() => navigate('/profile')}>Profile</a>

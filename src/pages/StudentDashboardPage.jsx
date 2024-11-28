@@ -12,19 +12,19 @@ const StudentDashboardPage = () => {
         <p>Track your applications, view job statuses, and much more!</p>
       </div>
       <div className="student-dashboard-content">
-        {/* Job Application Form Section */}
+      
         <div className="form-section">
           <h2>Apply for New Jobs</h2>
           <JobForm />
         </div>
 
-        {/* Job List Section */}
+      
         <div className="applications-section">
        
           <JobList />
         </div>
 
-        {/* Recruitment Status Section */}
+       
         <div className="status-section">
      
           <RecruitmentStatus />

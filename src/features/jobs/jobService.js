@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
-// Fetch all jobs
+
 export const fetchAllJobs = async (page = 1, limit = 10) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/jobs`, {
@@ -14,7 +14,7 @@ export const fetchAllJobs = async (page = 1, limit = 10) => {
   }
 };
 
-// Fetch jobs by company
+
 export const fetchJobsByCompany = async (token) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/jobs/company`, {
@@ -26,7 +26,7 @@ export const fetchJobsByCompany = async (token) => {
   }
 };
 
-// Create a new job
+
 export const createJob = async (jobData, token) => {
   try {
     const response = await axios.post(`${API_BASE_URL}/jobs`, jobData, {
@@ -38,7 +38,6 @@ export const createJob = async (jobData, token) => {
   }
 };
 
-// Update a job
 export const updateJob = async (jobId, jobData, token) => {
   try {
     const response = await axios.put(`${API_BASE_URL}/jobs/${jobId}`, jobData, {
@@ -50,7 +49,7 @@ export const updateJob = async (jobId, jobData, token) => {
   }
 };
 
-// Delete a job
+
 export const deleteJob = async (jobId, token) => {
   try {
     const response = await axios.delete(`${API_BASE_URL}/jobs/${jobId}`, {

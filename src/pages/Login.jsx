@@ -15,14 +15,11 @@ const Login = () => {
       const response = await axios.post("http://localhost:5000/api/students/login", { email, password });
       const { token, role } = response.data;
 
-      // Save token and role to localStorage
       localStorage.setItem("token", token);
       localStorage.setItem("role", role);
 
-      // Update auth state
       setAuthState({ isAuthenticated: true, role });
 
-      // Redirect to the appropriate dashboard
       if (role === "student") {
         navigate("/dashboard/student");
       } else if (role === "admin") {
@@ -37,29 +34,31 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
+    <div className="login-container">
+      <div className="login-form">
+        <h2>Login</h2>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>Email:</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label>Password:</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit">Login</button>
+        </form>
+      </div>
     </div>
   );
 };

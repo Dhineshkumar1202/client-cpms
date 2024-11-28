@@ -1,9 +1,9 @@
 import React, { createContext, useContext, useState } from "react";
 
-// Create the AuthContext
+
 const AuthContext = createContext();
 
-// AuthProvider component
+
 export const AuthProvider = ({ children }) => {
   const [authState, setAuthState] = useState({ isAuthenticated: false, role: null });
 
@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-// Custom hook to use AuthContext
+
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {

@@ -8,12 +8,12 @@ const JobUpdateForm = () => {
     location: '',
     company: '',
   });
-  const navigate = useNavigate(); // useNavigate instead of useHistory
-  const { jobId } = useParams(); // Get jobId from the URL
+  const navigate = useNavigate(); 
+  const { jobId } = useParams(); 
 
-  // Fetch job details for editing (you can modify this with your API call)
+
   useEffect(() => {
-    // Assume an API call to fetch job details by jobId
+   
     fetch(`/api/jobs/${jobId}`)
       .then(response => response.json())
       .then(data => setJob(data))
@@ -30,7 +30,7 @@ const JobUpdateForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Update job using API (you can modify this with your update API call)
+   
     fetch(`/api/jobs/${jobId}`, {
       method: 'PUT',
       headers: {
@@ -41,7 +41,7 @@ const JobUpdateForm = () => {
       .then(response => response.json())
       .then(data => {
         console.log('Job updated successfully:', data);
-        navigate('/jobs'); // Redirect to job list after successful update
+        navigate('/jobs'); 
       })
       .catch(error => console.error('Error updating job:', error));
   };

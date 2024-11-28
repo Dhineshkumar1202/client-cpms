@@ -35,7 +35,7 @@ const CompanyUpdateForm = ({ companyId, token }) => {
   };
 
   useEffect(() => {
-    // Optional: Prefill form with current company data if you fetch it elsewhere
+   
   }, []);
 
   return (

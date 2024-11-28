@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getRecruitmentStatus } from "../../services/RecruitmentStatusService";  // API service
+import { getRecruitmentStatus } from "../../services/RecruitmentStatusService";  
 
 const RecruitmentStatus = () => {
   const [status, setStatus] = useState({

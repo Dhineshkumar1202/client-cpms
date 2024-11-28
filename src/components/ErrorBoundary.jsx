@@ -7,12 +7,12 @@ class ErrorBoundary extends Component {
   }
 
   static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI
+   
     return { hasError: true };
   }
 
   componentDidCatch(error, errorInfo) {
-    // Log error to an error reporting service
+  
     console.error("Error caught by ErrorBoundary:", error, errorInfo);
     this.setState({ error, errorInfo });
   }
@@ -22,12 +22,12 @@ class ErrorBoundary extends Component {
       return (
         <div>
           <h2>Something went wrong. Please try again later.</h2>
-          {/* Optionally, log error details to console */}
+        
         </div>
       );
     }
 
-    return this.props.children; // Render children if no error
+    return this.props.children; 
   }
 }
 

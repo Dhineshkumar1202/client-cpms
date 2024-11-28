@@ -3,24 +3,23 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const CompanyDashboard = () => {
-  const [company, setCompany] = useState(null); // Company info
+  const [company, setCompany] = useState(null);
   const [jobStats, setJobStats] = useState({ totalJobs: 0, totalApplications: 0 });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // Fetch company and dashboard stats
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
         const token = localStorage.getItem("token");
 
-        // Fetch company details
+    
         const companyResponse = await axios.get("/api/company/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setCompany(companyResponse.data);
 
-        // Fetch job stats
+    
         const statsResponse = await axios.get("/api/company/dashboard-stats", {
           headers: { Authorization: `Bearer ${token}` },
         });
