@@ -6,30 +6,50 @@ import axios from "axios";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false); // Loading state for better UX
   const { setAuthState } = useAuth();
   const navigate = useNavigate();
 
+  const isEmailValid = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!isEmailValid(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+    if (!password) {
+      alert("Password cannot be empty.");
+      return;
+    }
+
+    setIsLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/api/students/login", { email, password });
+      const response = await axios.post("http://localhost:5000/api/auth/login", { email, password });
       const { token, role } = response.data;
 
+      // Save token and role in localStorage
       localStorage.setItem("token", token);
       localStorage.setItem("role", role);
 
+      // Update auth state
       setAuthState({ isAuthenticated: true, role });
 
-      if (role === "student") {
-        navigate("/dashboard/student");
-      } else if (role === "admin") {
+      // Redirect based on role
+      if (role === "admin") {
         navigate("/dashboard/admin");
+      } else if (role === "student") {
+        navigate("/dashboard/student");
       } else if (role === "company") {
         navigate("/dashboard/company");
       }
+      
     } catch (error) {
-      console.error("Login failed:", error.response?.data || error.message);
-      alert("Invalid credentials");
+      const message = error.response?.data?.message || "Login failed. Please try again.";
+      console.error("Login error:", message);
+      alert(message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -56,7 +76,9 @@ const Login = () => {
               required
             />
           </div>
-          <button type="submit">Login</button>
+          <button type="submit" disabled={isLoading}>
+            {isLoading ? "Logging in..." : "Login"}
+          </button>
         </form>
       </div>
     </div>
