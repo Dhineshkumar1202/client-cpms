@@ -1,11 +1,23 @@
-import React, { createContext, useContext, useState } from "react";
-
+import React, { createContext, useState, useContext, useEffect } from "react";
 
 const AuthContext = createContext();
 
 
 export const AuthProvider = ({ children }) => {
-  const [authState, setAuthState] = useState({ isAuthenticated: false, role: null });
+  const [authState, setAuthState] = useState({
+    isAuthenticated: false,
+    role: "",
+  });
+
+ 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const role = localStorage.getItem("role");
+
+    if (token && role) {
+      setAuthState({ isAuthenticated: true, role });
+    }
+  }, []);
 
   return (
     <AuthContext.Provider value={{ authState, setAuthState }}>
@@ -16,9 +28,5 @@ export const AuthProvider = ({ children }) => {
 
 
 export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error("useAuth must be used within an AuthProvider");
-  }
-  return context;
+  return useContext(AuthContext);
 };

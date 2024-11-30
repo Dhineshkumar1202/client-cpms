@@ -27,6 +27,7 @@ const Navbar = () => {
         <a onClick={() => navigate('/profile')}>Profile</a>
         <a onClick={() => navigate('/login')}>Logout</a>
       </div>
+      <div></div>
     </nav>
   );
 };

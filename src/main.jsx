@@ -9,12 +9,14 @@ const rootElement = document.getElementById("root");
 
 if (rootElement) {
   ReactDOM.createRoot(rootElement).render(
-    <BrowserRouter>
+    <React.StrictMode>
       <AuthProvider>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </AuthProvider>
-    </BrowserRouter>
+    </React.StrictMode>
   );
 } else {
-  console.error("Root element not found");
+  console.error("Root element not found. Ensure the 'root' div exists in index.html.");
 }

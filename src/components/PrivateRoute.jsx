@@ -1,18 +1,11 @@
-// src/components/PrivateRoute.js
-import React from 'react';
-import { Route, Navigate } from 'react-router-dom';
+import React from "react";
+import { Navigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
-const PrivateRoute = ({ element, ...rest }) => {
+const ProtectedRoute = ({ children }) => {
+  const { authState } = useAuth();
 
-  const token = localStorage.getItem('token');
-
-
-  if (!token) {
-    return <Navigate to="/login" />;
-  }
-
- 
-  return <Route {...rest} element={element} />;
+  return authState.isAuthenticated ? children : <Navigate to="/login" replace />;
 };
 
-export default PrivateRoute;
+export default ProtectedRoute;
