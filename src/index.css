@@ -1,493 +1,319 @@
-/* General Reset */
-*,
-*::before,
-*::after {
-  margin: 10px;
-  padding: 10px;
-  box-sizing: border-box;
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #f8f9fa;
-  color: #333;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
+a {
+  text-decoration: none;
 }
 
 /* Home Container */
 .home-container {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  padding: 20px;
+  padding: 50px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 1200px;
-  margin: 0 auto;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 50px auto;
   overflow: hidden;
 }
 
+/* Content Section */
 .content {
   flex: 1;
-  padding: 30px;
-  max-width: 600px;
-  text-align: left;
+  padding-right: 20px;
 }
 
 .content h1 {
-  font-size: 3rem;
-  color: #2c3e50;
+  font-size: 2.5rem;
   margin-bottom: 20px;
+  color: #1a73e8;
 }
 
 .content p {
   font-size: 1.2rem;
-  color: #555;
   margin-bottom: 30px;
-  line-height: 1.8;
+  line-height: 1.6;
 }
 
+/* Call-to-Action Button */
 .cta-button {
   display: inline-block;
-  padding: 12px 25px;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #4CAF50;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  padding: 10px 20px;
+  background-color: #1a73e8;
+  color: white;
   font-weight: bold;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 .cta-button:hover {
-  background-color: #388e3c;
-  transform: scale(1.05);
+  background-color: #0f5bb5;
 }
 
+/* Image Section */
 .image-container {
   flex: 1;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 20px;
+  align-items: center;
 }
 
 .image-container img {
   max-width: 100%;
   height: auto;
-  border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .home-container {
     flex-direction: column;
-    text-align: center;
-    padding: 30px;
-  }
-
-  .content {
     padding: 20px;
   }
 
+  .content {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .image-container {
+    margin-top: 20px;
+  }
+
   .content h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .content p {
     font-size: 1rem;
   }
 
-  .image-container {
-    margin-top: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .content h1 {
-    font-size: 2rem;
-  }
-
-  .content p {
-    font-size: 0.95rem;
-  }
-
   .cta-button {
-    padding: 10px 20px;
     font-size: 0.9rem;
   }
 }
 
-@media (max-width: 480px) {
-  .content h1 {
-    font-size: 1.8rem;
-  }
 
-  .content p {
-    font-size: 0.85rem;
-  }
+/* index.css */
 
-  .cta-button {
-    padding: 8px 15px;
-    font-size: 0.85rem;
-  }
 
-  .image-container img {
-    border-radius: 5px;
-  }
-}
 
-/* General Styles for the Page */
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f0f2f5; /* Light gray background for a clean look */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  color: #333;
-}
+/* Form Container */
 
-/* Centered Container for the Form */
-.signup-container {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 480px;
-  padding: 40px;
-  margin: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Title of the Form */
-h2 {
-  text-align: center;
-  font-size: 28px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: #4e9af1;
-}
 
 /* Input Fields */
-input {
+form input, 
+form select, 
+form button {
   width: 100%;
-  padding: 15px;
-  margin: 12px 0;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 16px;
-  background-color: #f9f9f9;
-  transition: border-color 0.3s ease, background-color 0.3s ease;
-}
-
-/* Focus effect on input fields */
-input:focus {
-  border-color: #4e9af1;
-  background-color: #ffffff;
-  outline: none;
-}
-
-/* Submit Button Styling */
-button {
-  width: 100%;
-  padding: 15px;
-  background-color: #4e9af1;
-  border: none;
-  color: #fff;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-/* Hover effect on button */
-button:hover {
-  background-color: #3578d7;
-  transform: translateY(-2px);
-}
-
-/* Success and Error Message Styling */
-div.success {
-  color: #4caf50;
-  font-size: 16px;
-  text-align: center;
-  margin: 12px 0;
-  font-weight: bold;
-}
-
-div.error {
-  color: #f44336;
-  font-size: 16px;
-  text-align: center;
-  margin: 12px 0;
-  font-weight: bold;
-}
-
-/* Styling the Links for Switching Between Login and Signup */
-.switch-link {
-  text-align: center;
-  font-size: 14px;
-  color: #4e9af1;
-  text-decoration: none;
-  margin-top: 15px;
-}
-
-.switch-link:hover {
-  text-decoration: underline;
-}
-
-/* Container Styling for Success/Error Messages */
-.message-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-/* Input Container for Layout */
-.input-container {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Responsive Design for Mobile Devices */
-@media (max-width: 768px) {
-  .signup-container {
-    width: 90%;
-    padding: 30px;
-  }
-
-  h2 {
-    font-size: 24px;
-  }
-
-  input {
-    font-size: 14px;
-    padding: 12px;
-  }
-
-  button {
-    font-size: 14px;
-    padding: 12px;
-  }
-}
-
-/* Hover Effects for the Form Container */
-.signup-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-}
-
-
-
-
-/* Admin Dashboard Container */
-.admin-dashboard {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.admin-dashboard header {
-  background-color: #4CAF50;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
-.admin-dashboard main {
-  flex: 1;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-section {
-  background: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Section Headers */
-section h2 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  color: #2c3e50;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .admin-dashboard main {
-    grid-template-columns: 1fr;
-    padding: 10px;
-  }
-
-  section {
-    padding: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .admin-dashboard header {
-    font-size: 1.5rem;
-    padding: 15px;
-  }
-}
-
-
-/* Company page */
-/* General Reset */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #f5f5f7;
-  color: #333;
-  line-height: 1.6;
+/* Input Focus State */
+form input:focus, 
+form select:focus {
+  border-color: #1a73e8;
+  outline: none;
+  box-shadow: 0 0 5px rgba(26, 115, 232, 0.3);
 }
 
-/* Dashboard Container */
-.company-dashboard {
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Header Section */
-.dashboard-header {
-  text-align: center;
-  margin-bottom: 30px;
-  padding: 20px;
-  background: #4CAF50;
+/* Button Styling */
+form button {
+  background-color: #1a73e8;
   color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #0f5bb5;
+}
+
+/* Placeholder Text */
+form input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  form {
+    padding: 15px;
+  }
+
+  form input,
+  form select,
+  form button {
+    font-size: 0.9rem;
+  }
+}
+
+
+
+
+/* Login Container */
+div {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 20px;
+  background: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-.dashboard-header h1 {
-  font-size: 2rem;
-  margin-bottom: 10px;
+/* Heading */
+div h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #1a73e8;
 }
 
-.dashboard-header p {
-  font-size: 1rem;
-}
-
-/* Dashboard Content */
-.dashboard-content {
+/* Form */
+form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
-
-/* Stats Section */
-.dashboard-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.stat-item {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.stat-item h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  color: #2c3e50;
-}
-
-.stat-item p {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.stat-item a {
-  color: #007bff;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.3s ease;
-}
-
-.stat-item a:hover {
-  color: #0056b3;
-}
-
-/* Quick Actions */
-.quick-actions {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.quick-actions h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  color: #2c3e50;
-}
-
-.action-buttons {
-  display: flex;
-  flex-wrap: wrap;
   gap: 15px;
 }
 
-.action-btn {
-  flex: 1;
-  text-align: center;
-  background-color: #007bff;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 5px;
-  text-decoration: none;
+/* Input Fields */
+form input {
+  width: 100%;
+  padding: 10px;
   font-size: 1rem;
-  font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
-.action-btn:hover {
-  background-color: #0056b3;
-  transform: translateY(-3px);
+/* Input Focus State */
+form input:focus {
+  border-color: #1a73e8;
+  outline: none;
+  box-shadow: 0 0 5px rgba(26, 115, 232, 0.3);
+}
+
+/* Button */
+form button {
+  padding: 10px;
+  background-color: #1a73e8;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #0f5bb5;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  div {
+    padding: 15px;
+  }
+
+  form input, 
+  form button {
+    font-size: 0.9rem;
+  }
+}
+
+
+
+
+/* index.css */
+
+/* General Dashboard Styles */
+.student-dashboard {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f8fc;
+  color: #333;
+  padding: 20px;
+}
+
+.student-dashboard-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #1a73e8;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.student-dashboard-header h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.student-dashboard-header p {
+  font-size: 1.2rem;
+}
+
+/* Content Sections */
+.student-dashboard-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+/* Form Section */
+.form-section {
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #1a73e8;
+}
+
+/* Applications Section */
+.applications-section {
+  flex: 2;
+  min-width: 300px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Status Section */
+.status-section {
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .dashboard-header {
-    padding: 15px;
-    font-size: 0.9rem;
-  }
-
-  .dashboard-stats {
-    grid-template-columns: 1fr;
-  }
-
-  .action-buttons {
+  .student-dashboard-content {
     flex-direction: column;
   }
 }

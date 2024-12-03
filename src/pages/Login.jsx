@@ -6,7 +6,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const { setUser } = useAuth(); // Access the setUser function from context
+  const { setUser } = useAuth(); 
 
   const handleLogin = async (e) => {
     e.preventDefault();
