@@ -2,21 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
+import { AuthProvider } from "./context/AuthContext"; // Correctly import AuthProvider
 import "./index.css";
-import { AuthProvider } from './context/AuthContext';
 
 const rootElement = document.getElementById("root");
+const root = ReactDOM.createRoot(rootElement);
 
-if (rootElement) {
-  ReactDOM.createRoot(rootElement).render(
-    <React.StrictMode>
-      <AuthProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <AuthProvider> {/* Wrap the app in AuthProvider */}
+        <App />
       </AuthProvider>
-    </React.StrictMode>
-  );
-} else {
-  console.error("Root element not found. Ensure the 'root' div exists in index.html.");
-}
+    </BrowserRouter>
+  </React.StrictMode>
+);

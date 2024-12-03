@@ -20,7 +20,7 @@ const JobPostings = () => {
     setLoading(true);
 
     try {
-      const token = localStorage.getItem("token");// Assume JWT is stored here
+      const token = localStorage.getItem("token");
       const response = await axios.post(
         "/api/jobs/create",
         { ...formData },

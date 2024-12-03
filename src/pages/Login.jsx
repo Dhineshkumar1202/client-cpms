@@ -1,57 +1,64 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
-  const [formData, setFormData] = useState({
-    username: '',
-    password: ''
-  });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const { setUser } = useAuth(); // Access the setUser function from context
 
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
-
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+
     try {
-      const response = await axios.post('http://localhost:5000/api/login', formData);
-      setSuccess(response.data.message); 
-      setError(null);  
-      localStorage.setItem('token', response.data.token);  // Store token in localStorage (for persistence)
-    } catch (err) {
-      setError(err.response.data.message);  
-      setSuccess(null);  
+      // Simulating login API call
+      const response = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        // Save role and token in localStorage
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("role", data.user.role);
+
+        // Update the auth state
+        setUser({
+          ...data.user, // user info
+          token: data.token,
+        });
+
+        // Redirect to the appropriate dashboard
+        if (data.user.role === "student") navigate("/dashboard/student");
+        else if (data.user.role === "admin") navigate("/dashboard/admin");
+        else if (data.user.role === "company") navigate("/dashboard/company");
+      } else {
+        alert(data.message || "Login failed");
+      }
+    } catch (error) {
+      console.error("Error logging in:", error);
+      alert("Login failed. Please try again.");
     }
   };
 
   return (
     <div>
       <h2>Login</h2>
-      {error && <div style={{ color: 'red' }}>{error}</div>}
-      {success && <div style={{ color: 'green' }}>{success}</div>}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleLogin}>
         <input
-          type="text"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
-          placeholder="Username"
-          required
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
         />
         <input
           type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
-          required
         />
         <button type="submit">Login</button>
       </form>

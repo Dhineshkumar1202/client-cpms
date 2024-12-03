@@ -1,11 +1,9 @@
-// src/features/PlacementDrive/PlacementDriveReport.jsx
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 const PlacementDriveReport = () => {
-  const { driveId } = useParams(); // Get driveId from URL
+  const { driveId } = useParams(); 
   const [report, setReport] = useState(null);
   const [message, setMessage] = useState('');
 

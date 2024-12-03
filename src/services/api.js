@@ -1,11 +1,11 @@
 import axios from "axios";
 
-// Axios Instance
+
 const API = axios.create({
     baseURL: "http://localhost:5000/",
 });
 
-// Generic Error Handler
+
 const handleError = async (apiCall) => {
     try {
         const response = await apiCall();
@@ -16,14 +16,14 @@ const handleError = async (apiCall) => {
     }
 };
 
-// Interview API calls
+
 export const scheduleInterview = (data) =>
     handleError(() => API.post("/api/interviews", data));
 
 export const getInterviewById = (interviewId) =>
     handleError(() => API.get(`/interviews/${interviewId}`));
 
-// Job API calls
+
 export const createJob = (data) =>
     handleError(() => API.post("/jobs", data));
 
@@ -39,7 +39,7 @@ export const updateJob = (jobId, data) =>
 export const deleteJob = (jobId) =>
     handleError(() => API.delete(`/jobs/${jobId}`));
 
-// Company API calls
+
 export const registerCompany = (data) =>
     handleError(() => API.post("/api/company/register", data));
 
