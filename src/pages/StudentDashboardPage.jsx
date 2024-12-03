@@ -13,10 +13,14 @@ const StudentDashboardPage = () => {
       </div>
       <div className="student-dashboard-content">
       
-        <div className="form-section">
-          <h2>Apply for New Jobs</h2>
-          <JobForm />
-        </div>
+      <div className="form-section">
+  <div className="section-header">
+    <span className="section-icon">📄</span>
+    <h2>Apply for New Jobs</h2>
+  </div>
+  <JobForm />
+</div>
+
 
       
         <div className="applications-section">
