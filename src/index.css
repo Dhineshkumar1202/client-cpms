@@ -1,16 +1,15 @@
 body {
- 
-  font-family: 'Arial', sans-serif;
+ font-family: 'Arial', sans-serif;
   background-color: #f4f4f9;
   color: #333;
-}
+ }
 
 .home-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 11rem;
   height: 100vh;
   box-sizing: border-box;
   background: linear-gradient(to right, #4facfe, #00f2fe);
