@@ -14,7 +14,7 @@ const JobDetails = () => {
     const fetchJob = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get(`/api/jobs/${jobId}`, {
+        const response = await axios.get(`https://appcollege-jsbz09o3.b4a.run/api/jobs/${jobId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -33,7 +33,7 @@ const JobDetails = () => {
   const handleDelete = async () => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`/api/jobs/${jobId}`, {
+      await axios.delete(`https://appcollege-jsbz09o3.b4a.run/api/jobs/${jobId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

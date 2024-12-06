@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000/api/academic-records/';
+const BASE_URL = 'https://appcollege-jsbz09o3.b4a.run/api/academic-records/';
 
 export const fetchAcademicRecords = async (studentId) => {
   try {

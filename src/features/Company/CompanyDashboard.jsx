@@ -14,13 +14,13 @@ const CompanyDashboard = () => {
         const token = localStorage.getItem("token");
 
     
-        const companyResponse = await axios.get("/api/company/me", {
+        const companyResponse = await axios.get("https://appcollege-jsbz09o3.b4a.run/api/company/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setCompany(companyResponse.data);
 
     
-        const statsResponse = await axios.get("/api/company/dashboard-stats", {
+        const statsResponse = await axios.get("https://appcollege-jsbz09o3.b4a.run/api/company/dashboard-stats", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setJobStats(statsResponse.data);

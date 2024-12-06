@@ -7,7 +7,7 @@ const JobList = () => {
 
   const fetchApplications = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/applications/${studentId}`);
+      const response = await axios.get(`https://appcollege-jsbz09o3.b4a.run/api/applications/${studentId}`);
       setApplications(response.data);
     } catch (error) {
       console.error('Error fetching applications:', error);
@@ -40,7 +40,7 @@ const JobList = () => {
             <h3>Job ID: {application.jobId}</h3>
             <p>Status: {application.status}</p>
             <p>
-              Resume: <a href={`http://localhost:5000/${application.resume}`} target="_blank" rel="noopener noreferrer">View Resume</a>
+              Resume: <a href={`https://appcollege-jsbz09o3.b4a.run/${application.resume}`} target="_blank" rel="noopener noreferrer">View Resume</a>
             </p>
             <p>Cover Letter: {application.coverLetter}</p>
           </li>

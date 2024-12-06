@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const API = axios.create({
-    baseURL: "http://localhost:5000/",
+    baseURL: "https://appcollege-jsbz09o3.b4a.run/",
 });
 
 
@@ -18,39 +18,39 @@ const handleError = async (apiCall) => {
 
 
 export const scheduleInterview = (data) =>
-    handleError(() => API.post("/api/interviews", data));
+    handleError(() => API.post("https://appcollege-jsbz09o3.b4a.run/api/interviews", data));
 
 export const getInterviewById = (interviewId) =>
-    handleError(() => API.get(`/interviews/${interviewId}`));
+    handleError(() => API.get(`https://appcollege-jsbz09o3.b4a.run/interviews/${interviewId}`));
 
 
 export const createJob = (data) =>
-    handleError(() => API.post("/jobs", data));
+    handleError(() => API.post("https://appcollege-jsbz09o3.b4a.run/jobs", data));
 
 export const getAllJobs = () =>
-    handleError(() => API.get("/jobs"));
+    handleError(() => API.get("https://appcollege-jsbz09o3.b4a.run/jobs"));
 
 export const getJobById = (jobId) =>
-    handleError(() => API.get(`/jobs/${jobId}`));
+    handleError(() => API.get(`https://appcollege-jsbz09o3.b4a.run/jobs/${jobId}`));
 
 export const updateJob = (jobId, data) =>
-    handleError(() => API.put(`/jobs/${jobId}`, data));
+    handleError(() => API.put(`https://appcollege-jsbz09o3.b4a.run/jobs/${jobId}`, data));
 
 export const deleteJob = (jobId) =>
-    handleError(() => API.delete(`/jobs/${jobId}`));
+    handleError(() => API.delete(`https://appcollege-jsbz09o3.b4a.run/jobs/${jobId}`));
 
 
 export const registerCompany = (data) =>
-    handleError(() => API.post("/api/company/register", data));
+    handleError(() => API.post("https://appcollege-jsbz09o3.b4a.run/api/company/register", data));
 
 export const loginCompany = (data) =>
-    handleError(() => API.post("/api/company/login", data));
+    handleError(() => API.post("https://appcollege-jsbz09o3.b4a.run/api/company/login", data));
 
 export const getCompanyDetails = (companyId) =>
-    handleError(() => API.get(`/api/company/${companyId}`));
+    handleError(() => API.get(`https://appcollege-jsbz09o3.b4a.run/api/company/${companyId}`));
 
 export const updateCompanyDetails = (companyId, data) =>
-    handleError(() => API.put(`/api/company/${companyId}`, data));
+    handleError(() => API.put(`https://appcollege-jsbz09o3.b4a.run/api/company/${companyId}`, data));
 
 export const deleteCompanyAccount = (companyId) =>
-    handleError(() => API.delete(`/api/company/${companyId}`));
+    handleError(() => API.delete(`https://appcollege-jsbz09o3.b4a.run/api/company/${companyId}`));

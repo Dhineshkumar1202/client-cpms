@@ -13,7 +13,7 @@ const CreatePlacementDrive = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/api/placement-drives/create', {
+      const response = await axios.post('https://appcollege-jsbz09o3.b4a.run/api/placement-drives/create', {
         companyId,
         title,
         description,

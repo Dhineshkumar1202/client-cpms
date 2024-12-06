@@ -22,7 +22,7 @@ const JobPostings = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "/api/jobs/create",
+        "https://appcollege-jsbz09o3.b4a.run/api/jobs/create",
         { ...formData },
         {
           headers: {

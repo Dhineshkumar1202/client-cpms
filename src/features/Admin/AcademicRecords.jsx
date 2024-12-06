@@ -8,7 +8,7 @@ const AcademicRecords = ({ studentId }) => {
   useEffect(() => {
     const fetchAcademicRecords = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/academic-records/${studentId}`);
+        const response = await axios.get(`https://appcollege-jsbz09o3.b4a.run/api/academic-records/${studentId}`);
         setAcademicData(response.data);
         setLoading(false);
       } catch (error) {

@@ -21,7 +21,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/register", formData);
+      const response = await axios.post("https://appcollege-jsbz09o3.b4a.run/api/auth/register", formData);
       toast.success(response.data.message);
     } catch (error) {
       toast.error(error.response?.data?.error || "Registration failed");
