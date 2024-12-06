@@ -13,7 +13,7 @@ const Login = () => {
 
     try {
       // Simulating login API call
-      const response = await fetch("https://appcollege-jsbz09o3.b4a.run/auth/login", {
+      const response = await fetch("https://appcollege-jsbz09o3.b4a.run/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
