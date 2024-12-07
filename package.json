@@ -13,7 +13,7 @@
   "dependencies": {
     "@mui/icons-material": "^6.1.9",
     "@mui/material": "^6.1.9",
-    "axios": "^1.7.7",
+    "axios": "^1.7.9",
     "frontend": "file:",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.6",

@@ -7,38 +7,40 @@ const Register = () => {
     name: "",
     email: "",
     password: "",
-    role: "student", // default roles
+    role: "student", // default to 'student' role
     department: "",
     grade: "",
     resume: "",
     username: "",
   });
 
+  // Handle form input change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("https://appcollege-jsbz09o3.b4a.run/api/auth/register", formData);
+      // Send the data to the backend register endpoint
+      const response = await axios.post(
+        "https://appcollege-jsbz09o3.b4a.run/api/auth/register", // Replace with your actual API URL
+        formData
+      );
+      // On success, show success toast
       toast.success(response.data.message);
     } catch (error) {
-      // Enhanced error handling
-      const errorMessage = error.response?.data?.error || "Registration failed";
-      if (error.response?.status === 400) {
-        toast.error(`Bad Request: ${errorMessage}`);
-      } else if (error.response?.status === 500) {
-        toast.error(`Server Error: ${errorMessage}`);
-      } else {
-        toast.error(errorMessage);
-      }
+      // Error handling with toast notifications
+      const errorMessage = error.response?.data?.message || "Registration failed";
+      toast.error(errorMessage);
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
+      {/* User Name */}
       <input
         type="text"
         name="name"
@@ -47,6 +49,8 @@ const Register = () => {
         onChange={handleChange}
         required
       />
+      
+      {/* Email */}
       <input
         type="email"
         name="email"
@@ -55,6 +59,8 @@ const Register = () => {
         onChange={handleChange}
         required
       />
+
+      {/* Password */}
       <input
         type="password"
         name="password"
@@ -64,14 +70,22 @@ const Register = () => {
         required
       />
 
-      <select name="role" value={formData.role} onChange={handleChange}>
+      {/* Role Selection */}
+      <select
+        name="role"
+        value={formData.role}
+        onChange={handleChange}
+        required
+      >
         <option value="student">Student</option>
         <option value="admin">Admin</option>
         <option value="company">Company</option>
       </select>
 
+      {/* Role Specific Fields */}
       {formData.role === "student" && (
         <>
+          {/* Department */}
           <input
             type="text"
             name="department"
@@ -80,6 +94,8 @@ const Register = () => {
             onChange={handleChange}
             required
           />
+          
+          {/* Grade */}
           <input
             type="text"
             name="grade"
@@ -88,6 +104,8 @@ const Register = () => {
             onChange={handleChange}
             required
           />
+          
+          {/* Resume Link */}
           <input
             type="text"
             name="resume"
@@ -99,16 +117,20 @@ const Register = () => {
       )}
 
       {(formData.role === "admin" || formData.role === "company") && (
-        <input
-          type="text"
-          name="username"
-          placeholder="Username"
-          value={formData.username}
-          onChange={handleChange}
-          required
-        />
+        <>
+          {/* Username */}
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            value={formData.username}
+            onChange={handleChange}
+            required
+          />
+        </>
       )}
 
+      {/* Submit Button */}
       <button type="submit">Register</button>
     </form>
   );
