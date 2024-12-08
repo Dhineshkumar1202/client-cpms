@@ -1,41 +1,42 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
-    role: "student", // Default role
-    username: "",
+    role: "student",
     department: "",
     grade: "",
     resume: "",
+    username: "",
   });
 
+  // Handle input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      const response = await axios.post("https://appcollege-jsbz09o3.b4a.run/api/auth/register", formData); // Update URL if different
+      const response = await axios.post(
+        "http://localhost:5000/api/auth/register", // Adjust the URL if needed
+        formData
+      );
       toast.success(response.data.message);
-      
-      // Reset form fields
       setFormData({
         name: "",
         email: "",
         password: "",
         role: "student",
-        username: "",
         department: "",
         grade: "",
         resume: "",
+        username: "",
       });
     } catch (error) {
       const errorMessage = error.response?.data?.message || "Registration failed";
@@ -45,6 +46,9 @@ const Register = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h2>Register</h2>
+
+      {/* Name */}
       <input
         type="text"
         name="name"
@@ -53,6 +57,8 @@ const Register = () => {
         onChange={handleChange}
         required
       />
+
+      {/* Email */}
       <input
         type="email"
         name="email"
@@ -61,6 +67,8 @@ const Register = () => {
         onChange={handleChange}
         required
       />
+
+      {/* Password */}
       <input
         type="password"
         name="password"
@@ -69,12 +77,15 @@ const Register = () => {
         onChange={handleChange}
         required
       />
+
+      {/* Role Selection */}
       <select name="role" value={formData.role} onChange={handleChange} required>
         <option value="student">Student</option>
         <option value="admin">Admin</option>
         <option value="company">Company</option>
       </select>
 
+      {/* Role-specific fields */}
       {formData.role === "student" && (
         <>
           <input
@@ -94,7 +105,7 @@ const Register = () => {
             required
           />
           <input
-            type="url"
+            type="text"
             name="resume"
             placeholder="Resume Link"
             value={formData.resume}
