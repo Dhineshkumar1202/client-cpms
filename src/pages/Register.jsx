@@ -23,7 +23,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/register", formData); // Update URL if different
+      const response = await axios.post("https://appcollege-jsbz09o3.b4a.run/api/auth/register", formData); // Update URL if different
       toast.success(response.data.message);
       
       // Reset form fields
