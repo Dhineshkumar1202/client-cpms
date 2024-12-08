@@ -24,7 +24,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/register", // Adjust the URL if needed
+        "https://appcollege-jsbz09o3.b4a.run/api/auth/register", // Adjust the URL if needed
         formData
       );
       toast.success(response.data.message);
