@@ -8,64 +8,43 @@ const Register = () => {
     name: "",
     email: "",
     password: "",
-    role: "student", // default to 'student' role
+    role: "student", // Default role
+    username: "",
     department: "",
     grade: "",
     resume: "",
-    username: "",
   });
 
-  const API_URL = process.env.REACT_APP_API_URL || "https://appcollege-jsbz09o3.b4a.run";
-
-  // Handle form input change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Form validation
-  const validateForm = () => {
-    if (!formData.name.trim() || !formData.email.trim() || !formData.password.trim()) {
-      toast.error("Name, Email, and Password are required!");
-      return false;
-    }
-    if (formData.role === "student" && (!formData.department.trim() || !formData.grade.trim())) {
-      toast.error("Department, Grade, and Username are required for students!");
-      return false;
-    }
-    return true;
-  };
-
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validateForm()) return;
 
     try {
-      // Send the data to the backend register endpoint
-      const response = await axios.post(`${API_URL}/api/auth/register`, formData);
+      const response = await axios.post("http://localhost:5000/api/auth/register", formData); // Update URL if different
       toast.success(response.data.message);
-
-      // Reset form data after successful submission
+      
+      // Reset form fields
       setFormData({
         name: "",
         email: "",
         password: "",
         role: "student",
+        username: "",
         department: "",
         grade: "",
         resume: "",
-        username: "",
       });
     } catch (error) {
-      // Error handling with toast notifications
       const errorMessage = error.response?.data?.message || "Registration failed";
       toast.error(errorMessage);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="register-form">
-      {/* User Name */}
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
         name="name"
@@ -74,8 +53,6 @@ const Register = () => {
         onChange={handleChange}
         required
       />
-
-      {/* Email */}
       <input
         type="email"
         name="email"
@@ -84,8 +61,6 @@ const Register = () => {
         onChange={handleChange}
         required
       />
-
-      {/* Password */}
       <input
         type="password"
         name="password"
@@ -94,15 +69,12 @@ const Register = () => {
         onChange={handleChange}
         required
       />
-
-      {/* Role Selection */}
       <select name="role" value={formData.role} onChange={handleChange} required>
         <option value="student">Student</option>
         <option value="admin">Admin</option>
         <option value="company">Company</option>
       </select>
 
-      {/* Role-Specific Fields */}
       {formData.role === "student" && (
         <>
           <input
@@ -128,31 +100,20 @@ const Register = () => {
             value={formData.resume}
             onChange={handleChange}
           />
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
         </>
       )}
 
-      {(formData.role === "admin" || formData.role === "company") && (
-        <>
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
-        </>
+      {formData.role !== "student" && (
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          value={formData.username}
+          onChange={handleChange}
+          required
+        />
       )}
 
-      {/* Submit Button */}
       <button type="submit">Register</button>
     </form>
   );
