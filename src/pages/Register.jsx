@@ -22,11 +22,21 @@ const Register = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Conditionally remove 'resume' if it's empty and the role is student
+    const dataToSubmit = { ...formData };
+    if (formData.role === "student" && !formData.resume) {
+      delete dataToSubmit.resume;
+    }
+
     try {
+      // Send the registration request to the backend
       const response = await axios.post(
         "https://appcollege-jsbz09o3.b4a.run/api/auth/register", // Adjust the URL if needed
-        formData
+        dataToSubmit
       );
+
+      // On success, show a success message
       toast.success(response.data.message);
       setFormData({
         name: "",
@@ -39,7 +49,9 @@ const Register = () => {
         username: "",
       });
     } catch (error) {
+      // Log error details and show the error message from the backend
       const errorMessage = error.response?.data?.message || "Registration failed";
+      console.error("Error details: ", error.response?.data);
       toast.error(errorMessage);
     }
   };
@@ -85,7 +97,7 @@ const Register = () => {
         <option value="company">Company</option>
       </select>
 
-      {/* Role-specific fields */}
+      {/* Role-specific fields for students */}
       {formData.role === "student" && (
         <>
           <input
@@ -107,13 +119,14 @@ const Register = () => {
           <input
             type="text"
             name="resume"
-            placeholder="Resume Link"
+            placeholder="Resume Link (Optional)"
             value={formData.resume}
             onChange={handleChange}
           />
         </>
       )}
 
+      {/* Role-specific fields for admin and company */}
       {formData.role !== "student" && (
         <input
           type="text"
