@@ -27,7 +27,7 @@ function App() {
 
       {/* Student Dashboard */}
       <Route
-        path="/dashboard/student"
+        path="/student-dashboard"
         element={
           <ProtectedRoute isAuthenticated={authState.isAuthenticated}>
             <RoleBasedRoute role={authState.role} allowedRoles={["student"]}>
