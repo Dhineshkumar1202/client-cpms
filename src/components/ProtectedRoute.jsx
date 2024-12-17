@@ -1,26 +1,28 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 
-
-const isTokenExpired = (token) => {
-  if (!token) return true;
-  
-  const decodedToken = JSON.parse(atob(token.split('.')[1])); 
-  const currentTime = Math.floor(Date.now() / 1000);  
-  return decodedToken.exp < currentTime; 
-}
-
-const ProtectedRoute = ({ children, allowedRoles }) => {
+const ProtectedRoute = ({ component: Component, ...rest }) => {
   const token = localStorage.getItem('token');
   const role = localStorage.getItem('role');
-
   
-  if (!token || isTokenExpired(token) || !allowedRoles.includes(role)) {
-    return <Navigate to="/login" replace />;
+  if (!token) {
+    return <Redirect to="/login" />;
   }
-
- 
-  return children;
+  
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        (role === "student" && rest.path === "/student-dashboard") || 
+        (role === "admin" && rest.path === "/admin-dashboard") ||
+        (role === "company" && rest.path === "/company-dashboard") ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to="/login" />
+        )
+      }
+    />
+  );
 };
 
 export default ProtectedRoute;
