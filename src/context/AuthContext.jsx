@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
@@ -12,12 +11,12 @@ const AuthProvider = ({ children }) => {
   });
 
   const setUser = (userData) => {
-    const token = localStorage.getItem("token") || userData.token;
-    const role = localStorage.getItem("role") || userData.role;
+    const token = localStorage.getItem("authToken") || userData.token;
+    const role = localStorage.getItem("userRole") || userData.role;
 
-
-    localStorage.setItem("token", token);
-    localStorage.setItem("role", role);
+    // Store token and role in local storage
+    localStorage.setItem("authToken", token);
+    localStorage.setItem("userRole", role);
 
     setAuthState({
       user: userData,
@@ -27,10 +26,9 @@ const AuthProvider = ({ children }) => {
     });
   };
 
-
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    const role = localStorage.getItem("role");
+    const token = localStorage.getItem("authToken");
+    const role = localStorage.getItem("userRole");
     if (token && role) {
       setAuthState({
         user: null,
@@ -41,10 +39,9 @@ const AuthProvider = ({ children }) => {
     }
   }, []);
 
-
   const logout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("role");
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("userRole");
 
     setAuthState({
       user: null,
@@ -60,7 +57,6 @@ const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
-
 
 const useAuth = () => {
   const context = useContext(AuthContext);
