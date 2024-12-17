@@ -39,7 +39,7 @@ function App() {
 
       {/* Admin Dashboard */}
       <Route
-        path="/dashboard/admin"
+        path="/admin-dashboard"
         element={
           <ProtectedRoute isAuthenticated={authState.isAuthenticated}>
             <RoleBasedRoute role={authState.role} allowedRoles={["admin"]}>
@@ -51,7 +51,7 @@ function App() {
 
       {/* Company Dashboard */}
       <Route
-        path="/dashboard/company"
+        path="/company-dashboard"
         element={
           <ProtectedRoute isAuthenticated={authState.isAuthenticated}>
             <RoleBasedRoute role={authState.role} allowedRoles={["company"]}>
