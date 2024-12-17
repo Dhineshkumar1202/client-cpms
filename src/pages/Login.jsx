@@ -20,7 +20,7 @@ const LoginPage = () => {
       const response = await axios.post("http://localhost:5000/api/auth/login", formData);
       const { token, role, user } = response.data;
 
-      // Update auth context and redirect based on role
+     
       setUser({ token, role, user });
 
       setMessage("Login successful!");
