@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 const axiosInstance = axios.create({
-  baseURL: 'https://appcollege-jsbz0903.b4a.run/api', 
+  baseURL: 'https://cpmsapp-q59f2p6k.b4a.run', 
 });
 
 
