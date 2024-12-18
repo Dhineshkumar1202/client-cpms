@@ -10,7 +10,7 @@ const LoginForm = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://cpmsapp-q59f2p6k.b4a.run/api/auth/login", {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

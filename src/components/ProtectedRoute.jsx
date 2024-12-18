@@ -4,8 +4,12 @@ import { Redirect, Route } from 'react-router-dom';
 const ProtectedRoute = ({ component: Component, ...rest }) => {
   const token = localStorage.getItem('token');
   const role = localStorage.getItem('role');
-  
+  console.log(token,role)
+
+
+
   if (!token) {
+    
     return <Redirect to="/login" />;
   }
   
