@@ -1,54 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const AcademicRecords = ({ studentId }) => {
-  const [academicData, setAcademicData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [records, setRecords] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchAcademicRecords = async () => {
+    const fetchRecords = async () => {
       try {
-        const response = await axios.get(`https://appcollege-jsbz09o3.b4a.run/api/academic-records/${studentId}`);
-        setAcademicData(response.data);
-        setLoading(false);
+        const response = await axios.get(`https://appcollege-jsbz0903.b4a.run/api/academic-records/${studentId}`);
+        setRecords(response.data);
       } catch (error) {
-        console.error("Error fetching academic records", error);
-        setLoading(false);
+        console.error("Error fetching academic records:", error.response || error.message);
+        setError("Failed to fetch academic records. Please try again later.");
       }
     };
 
-    fetchAcademicRecords();
+    fetchRecords();
   }, [studentId]);
 
-  if (loading) return <div>Loading...</div>;
-
-  if (!academicData) return <div>No Academic Records Found</div>;
-
+  if (error) return <p>{error}</p>;
   return (
     <div>
-      <h2>Academic Records</h2>
-      <div>
-        <h3>Grades</h3>
-        <ul>
-          {Object.entries(academicData.grades).map(([subject, grade]) => (
-            <li key={subject}>
-              {subject}: {grade}
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h3>Achievements</h3>
-        <ul>
-          {academicData.achievements.map((achievement, index) => (
-            <li key={index}>{achievement}</li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h3>Transcripts</h3>
-        <a href={academicData.transcripts} target="_blank" rel="noopener noreferrer">Download Transcript</a>
-      </div>
+      <h3>Academic Records</h3>
+      <ul>
+        {records.map((record, index) => (
+          <li key={index}>{record}</li>
+        ))}
+      </ul>
     </div>
   );
 };

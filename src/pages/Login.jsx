@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext"; // Import AuthContext
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const { setUser } = useAuth(); // Get setUser from AuthContext
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true); 
+    setIsLoading(true);
 
     try {
       const response = await fetch("https://cpmsapp-q59f2p6k.b4a.run/api/auth/login", {
@@ -23,11 +25,14 @@ const LoginForm = () => {
       const data = await response.json();
 
       if (response.ok) {
-        // Store the token and role in localStorage
+        // Save token and role to localStorage
         localStorage.setItem("authToken", data.token);
         localStorage.setItem("userRole", data.role);
 
-        console.log("Login successful, role:", data.role); // Debugging line
+        console.log("Login successful, role:", data.role);
+
+        // Update authState using setUser
+        setUser({ token: data.token, role: data.role });
 
         // Redirect based on role
         if (data.role === "student") {
@@ -38,7 +43,7 @@ const LoginForm = () => {
           navigate("/company-dashboard");
         } else {
           alert("Invalid role detected. Please contact support.");
-          localStorage.clear(); // Clear invalid data
+          localStorage.clear();
         }
       } else {
         console.error("Login failed:", data.message);
@@ -46,9 +51,9 @@ const LoginForm = () => {
       }
     } catch (error) {
       console.error("Login error:", error);
-      alert("Something went wrong. Please try again later.");
+      alert("Something went wrong. Please try again.");
     } finally {
-      setIsLoading(false); // Hide loading spinner
+      setIsLoading(false);
     }
   };
 

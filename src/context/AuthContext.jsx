@@ -14,36 +14,35 @@ const AuthProvider = ({ children }) => {
   const setUser = (userData) => {
     const token = userData.token || localStorage.getItem("authToken");
     const role = userData.role || localStorage.getItem("userRole");
-    const user = userData.user || null; // You can set user data if it's available
-
-    // Store token and role in localStorage
+  
+    // Update localStorage
     localStorage.setItem("authToken", token);
     localStorage.setItem("userRole", role);
-
-    // Set authState
+  
+    // Update context state
     setAuthState({
-      user,
+      user: userData,
       isAuthenticated: !!token,
       role,
       token,
     });
   };
+  
 
   // Check if the user is authenticated on initial load
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     const role = localStorage.getItem("userRole");
-    const user = JSON.parse(localStorage.getItem("userData")); // You may store and retrieve user data if needed
-
     if (token && role) {
       setAuthState({
-        user: user || null,
+        user: null,
         isAuthenticated: true,
         role,
         token,
       });
     }
   }, []);
+  
 
   // Logout function to clear local storage and reset authState
   const logout = () => {
