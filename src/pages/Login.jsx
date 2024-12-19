@@ -9,7 +9,7 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true); // Show loading spinner
+    setIsLoading(true); 
 
     try {
       const response = await fetch("https://cpmsapp-q59f2p6k.b4a.run/api/auth/login", {
@@ -23,29 +23,30 @@ const LoginForm = () => {
       const data = await response.json();
 
       if (response.ok) {
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("role", data.role);
+        // Store the token and role in localStorage
+        localStorage.setItem("authToken", data.token);
+        localStorage.setItem("userRole", data.role);
 
-        const role = localStorage.getItem("role");
-        console.log("Role from localStorage:", role);  // Debugging line to check role
+        console.log("Login successful, role:", data.role); // Debugging line
 
         // Redirect based on role
-        if (role === "student") {
+        if (data.role === "student") {
           navigate("/student-dashboard");
-        } else if (role === "admin") {
+        } else if (data.role === "admin") {
           navigate("/admin-dashboard");
-        } else if (role === "company") {
+        } else if (data.role === "company") {
           navigate("/company-dashboard");
         } else {
           alert("Invalid role detected. Please contact support.");
-          localStorage.clear();
+          localStorage.clear(); // Clear invalid data
         }
       } else {
+        console.error("Login failed:", data.message);
         alert(data.message || "Invalid credentials. Please try again.");
       }
     } catch (error) {
       console.error("Login error:", error);
-      alert("Login failed. Please try again.");
+      alert("Something went wrong. Please try again later.");
     } finally {
       setIsLoading(false); // Hide loading spinner
     }
