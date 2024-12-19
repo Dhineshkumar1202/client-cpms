@@ -70,6 +70,11 @@ const SignupPage = () => {
                 </>
             )}
             <button type="submit">Sign Up</button>
+            
+<div className="login-link">
+    Already have an account? <a href="/login">Log in</a>
+</div>
+
         </form>
     );
 };

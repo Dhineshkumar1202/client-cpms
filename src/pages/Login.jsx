@@ -8,6 +8,7 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
 
     try {
       const response = await fetch("https://cpmsapp-q59f2p6k.b4a.run/api/auth/login", {
@@ -44,22 +45,28 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
+    <h2>Welcome Back!</h2>
+    <p>Please log in to access your account.</p>
+    <input
         type="email"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
-      />
-      <input
+    />
+    <input
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
-      />
-      <button type="submit">Login</button>
-    </form>
+    />
+    <button type="submit">Login</button>
+    <div className="login-link">
+        Don't have an account? <a href="/signup">Sign Up</a>
+    </div>
+</form>
+
   );
 };
 
