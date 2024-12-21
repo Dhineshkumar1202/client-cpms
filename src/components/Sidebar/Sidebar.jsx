@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css';
-import { FaTachometerAlt, FaGraduationCap, FaChartBar, FaUsers } from 'react-icons/fa'; // Import icons
+import { FaTachometerAlt, FaGraduationCap, FaChartBar, FaUsers } from 'react-icons/fa';
 
 const Sidebar = () => {
   return (

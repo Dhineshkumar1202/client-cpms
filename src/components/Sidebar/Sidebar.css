@@ -1,49 +1,50 @@
 /* Sidebar Container */
 .sidebar {
-    width: 150px;
+    width: 250px;
     height: 100vh;
     background-color: #2f3b52;
     color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-top: 10px;
     position: fixed;
     top: 0;
     left: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
   }
   
   /* Sidebar Header */
   .sidebar-header {
     text-align: center;
-    padding-bottom: 30px;
+    margin-bottom: 30px;
   }
   
   .sidebar-header h2 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: bold;
     color: #fff;
     margin: 0;
     padding: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
   }
   
   /* Sidebar List */
   .sidebar-list {
     list-style-type: none;
-    padding: 10px;
+    padding: 0;
     margin: 0;
   }
   
   .sidebar-item {
-    padding: 15px;
+    padding: 12px 20px;
     display: flex;
     align-items: center;
     transition: all 0.3s ease;
-  }
-  
-  .sidebar-item:hover {
-    background-color: #3e4a63;
-    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px 0;
   }
   
   /* Sidebar Link */
@@ -52,22 +53,31 @@
     color: #fff;
     display: flex;
     align-items: center;
+    width: 100%;
+    transition: all 0.3s ease;
   }
   
   .sidebar-link:hover {
-    color: #4caf50;
+    color: #fff;
+    background-color: #4caf50; /* Green background on hover */
+  }
+  
+  .sidebar-item:hover {
+    background-color: #3e4a63; /* Slight background change when hovering over the item */
   }
   
   /* Sidebar Icon */
   .sidebar-icon {
     font-size: 1.5rem;
-    margin-right: 10px;
+    margin-right: 15px;
+    transition: all 0.3s ease;
   }
   
   /* Sidebar Text */
   .sidebar-text {
     font-size: 1.1rem;
     font-weight: 500;
+    letter-spacing: 0.5px;
   }
   
   /* Active Link */
@@ -80,19 +90,31 @@
     color: #4caf50;
   }
   
-  /* Responsive Design for Mobile */
+  /* Sidebar Item Active State */
+  .sidebar-item.active {
+    background-color: #3e4a63;
+    color: #4caf50;
+  }
+  
+  /* Sidebar Footer (Optional for logout or additional options) */
+  .sidebar-footer {
+    margin-top: auto;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Sidebar Responsive Design for Mobile */
   @media (max-width: 768px) {
     .sidebar {
       width: 200px;
-      position: fixed;
     }
   
     .sidebar-header h2 {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
     }
   
     .sidebar-item {
-      padding: 10px;
+      padding: 10px 15px;
     }
   
     .sidebar-text {
@@ -100,7 +122,7 @@
     }
   
     .sidebar-icon {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
     }
   }
   
