@@ -1,3 +1,4 @@
+// Updated AuthContext.jsx
 import React, { createContext, useContext, useState, useEffect } from "react";
 
 const AuthContext = createContext();
@@ -10,15 +11,18 @@ const AuthProvider = ({ children }) => {
     token: null,
   });
 
-  // Set user and store token/role in localStorage
+  // Function to set user state and persist token/role in localStorage
   const setUser = (userData) => {
     const token = userData.token || localStorage.getItem("authToken");
     const role = userData.role || localStorage.getItem("userRole");
-  
+
+    // Debug: Log user data
+    console.log("Setting user:", userData);
+
     // Update localStorage
     localStorage.setItem("authToken", token);
     localStorage.setItem("userRole", role);
-  
+
     // Update context state
     setAuthState({
       user: userData,
@@ -27,12 +31,15 @@ const AuthProvider = ({ children }) => {
       token,
     });
   };
-  
 
-  // Check if the user is authenticated on initial load
+  // Initialize authState on app load
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     const role = localStorage.getItem("userRole");
+
+    // Debug: Log initial token and role
+    console.log("Initial authState check:", { token, role });
+
     if (token && role) {
       setAuthState({
         user: null,
@@ -42,13 +49,12 @@ const AuthProvider = ({ children }) => {
       });
     }
   }, []);
-  
 
   // Logout function to clear local storage and reset authState
   const logout = () => {
+    console.log("Logging out. Clearing authState and localStorage.");
     localStorage.removeItem("authToken");
     localStorage.removeItem("userRole");
-    localStorage.removeItem("userData"); // Optional if you're storing user data
 
     setAuthState({
       user: null,
