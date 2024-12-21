@@ -1,0 +1,40 @@
+.dashboard-card {
+    background-color: #2196F3;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dashboard-card .text {
+    flex: 1;
+  }
+  
+  .dashboard-card h3 {
+    font-size: 1.2em;
+  }
+  
+  .dashboard-card p {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  
+  .dashboard-card .icon {
+    font-size: 2.5em;
+  }
+  
+  .dashboard-card.green {
+    background-color: #4CAF50;
+  }
+  
+  .dashboard-card.yellow {
+    background-color: #FFEB3B;
+  }
+  
+  .dashboard-card.red {
+    background-color: #F44336;
+  }
+  

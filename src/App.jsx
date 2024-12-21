@@ -19,8 +19,7 @@ const RoleBasedRoute = ({ role, allowedRoles, children, redirectTo = "/login" })
 function App() {
   const { authState } = useAuth();
 
-  // Debug: Check if authState is being set properly
-  console.log('authState:', authState);
+ 
 
   return (
     <Routes>

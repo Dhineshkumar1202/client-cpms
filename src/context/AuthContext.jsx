@@ -16,8 +16,7 @@ const AuthProvider = ({ children }) => {
     const token = userData.token || localStorage.getItem("authToken");
     const role = userData.role || localStorage.getItem("userRole");
 
-    // Debug: Log user data
-    console.log("Setting user:", userData);
+  
 
     // Update localStorage
     localStorage.setItem("authToken", token);
@@ -37,8 +36,7 @@ const AuthProvider = ({ children }) => {
     const token = localStorage.getItem("authToken");
     const role = localStorage.getItem("userRole");
 
-    // Debug: Log initial token and role
-    console.log("Initial authState check:", { token, role });
+ 
 
     if (token && role) {
       setAuthState({

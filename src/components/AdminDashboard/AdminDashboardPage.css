@@ -1,0 +1,33 @@
+.admin-dashboard {
+    display: flex;
+  }
+  
+  .main-content {
+    margin-left: 250px; /* Ensures space for the sidebar */
+    width: 100%;
+    padding: 20px;
+  }
+  
+  header {
+    margin-bottom: 30px;
+  }
+  
+  .dashboard-cards {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .dashboard-cards .dashboard-card {
+    flex: 1;
+  }
+  
+  section {
+    margin-top: 30px;
+  }
+  
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
