@@ -11,6 +11,6 @@ const Card = ({ title, description, link }) => {
       </div>
     </div>
   );
-};
+};   
 
 export default Card;
