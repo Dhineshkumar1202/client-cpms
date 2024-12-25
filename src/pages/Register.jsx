@@ -77,8 +77,8 @@ const SignupPage = () => {
 
         </form>
     );
-    
-    };
+
+};
 
 
 

@@ -9,28 +9,28 @@ const StudentDashboardPage = () => {
     <div className="student-dashboard">
       <div className="student-dashboard-header">
         <h1>Welcome to Your Student Dashboard</h1>
-        <p>Track your applications, view job statuses, and much more!</p>
+        <p>Track your applications, view job statuses, and apply for opportunities!</p>
       </div>
       <div className="student-dashboard-content">
-      
-      <div className="form-section">
-  <div className="section-header">
-    <span className="section-icon">📄</span>
-    <h2>Apply for New Jobs</h2>
-  </div>
-  <JobForm />
-</div>
-
-
-      
-        <div className="applications-section">
-       
+        <div className="dashboard-card">
+          <div className="card-header">
+            <span className="card-icon">📄</span>
+            <h2>Apply for New Jobs</h2>
+          </div>
+          <JobForm />
+        </div>
+        <div className="dashboard-card">
+          <div className="card-header">
+            <span className="card-icon">📋</span>
+            <h2>Your Job Applications</h2>
+          </div>
           <JobList />
         </div>
-
-       
-        <div className="status-section">
-     
+        <div className="dashboard-card">
+          <div className="card-header">
+            <span className="card-icon">✅</span>
+            <h2>Recruitment Status</h2>
+          </div>
           <RecruitmentStatus />
         </div>
       </div>
