@@ -3,7 +3,6 @@ import JobForm from '../features/Student/JobForm';
 import JobList from '../features/Student/JobList';
 import RecruitmentStatus from '../features/Student/RecruitmentStatus';
 
-
 const StudentDashboardPage = () => {
   return (
     <div className="student-dashboard">
