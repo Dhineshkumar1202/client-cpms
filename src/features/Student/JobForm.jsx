@@ -17,7 +17,7 @@ const JobForm = () => {
     formData.append('coverLetter', coverLetter);
 
     try {
-      const response = await axios.post('https://appcollege-jsbz09o3.b4a.run/api/applications', formData, {
+      const response = await axios.post('https://cpmsapp-q59f2p6k.b4a.run/api/applications', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

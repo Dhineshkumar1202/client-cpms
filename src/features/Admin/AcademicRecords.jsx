@@ -8,7 +8,7 @@ const AcademicRecords = ({ studentId }) => {
   useEffect(() => {
     const fetchRecords = async () => {
       try {
-        const response = await axios.get(`https://appcollege-jsbz0903.b4a.run/api/academic-records/${studentId}`);
+        const response = await axios.get(`https://cpmsapp-q59f2p6k.b4a.run/api/academic-records/${studentId}`);
         setRecords(response.data);
       } catch (error) {
         console.error("Error fetching academic records:", error.response || error.message);

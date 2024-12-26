@@ -15,13 +15,13 @@ const CompanyDashboardPage = () => {
         const token = localStorage.getItem("token");
 
         // Fetch company details
-        const companyResponse = await axios.get("https://appcollege-jsbz09o3.b4a.run/api/company/me", {
+        const companyResponse = await axios.get("https://cpmsapp-q59f2p6k.b4a.run/api/company/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setCompany(companyResponse.data);
 
         // Fetch job statistics
-        const statsResponse = await axios.get("https://appcollege-jsbz09o3.b4a.run/api/company/dashboard-stats", {
+        const statsResponse = await axios.get("https://cpmsapp-q59f2p6k.b4a.run/api/company/dashboard-stats", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setJobStats(statsResponse.data);

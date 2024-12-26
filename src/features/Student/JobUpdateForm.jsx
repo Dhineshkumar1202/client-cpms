@@ -14,7 +14,7 @@ const JobUpdateForm = () => {
 
   useEffect(() => {
    
-    fetch(`/api/jobs/${jobId}`)
+    fetch(`https://cpmsapp-q59f2p6k.b4a.run/api/jobs/${jobId}`)
       .then(response => response.json())
       .then(data => setJob(data))
       .catch(error => console.error('Error fetching job details:', error));
@@ -31,7 +31,7 @@ const JobUpdateForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
    
-    fetch(`/api/jobs/${jobId}`, {
+    fetch(`https://cpmsapp-q59f2p6k.b4a.run/api/jobs/${jobId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

@@ -10,7 +10,7 @@ const PlacementDriveReport = () => {
   useEffect(() => {
     const fetchReport = async () => {
       try {
-        const response = await axios.get(`https://appcollege-jsbz09o3.b4a.run/api/placement-drives/${driveId}/report`);
+        const response = await axios.get(`https://cpmsapp-q59f2p6k.b4a.run/api/placement-drives/${driveId}/report`);
         setReport(response.data);
       } catch (error) {
         setMessage('Failed to fetch placement drive report');

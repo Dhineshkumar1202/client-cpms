@@ -14,7 +14,7 @@ const JobDetails = () => {
     const fetchJob = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get(`https://appcollege-jsbz09o3.b4a.run/api/jobs/${jobId}`, {
+        const response = await axios.get(`https://cpmsapp-q59f2p6k.b4a.run/api/jobs/${jobId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

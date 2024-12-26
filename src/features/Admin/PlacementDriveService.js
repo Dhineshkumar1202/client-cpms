@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://appcollege-jsbz09o3.b4a.run/api/placement-drives/';
+const API_URL = 'https://cpmsapp-q59f2p6k.b4a.run/api/placement-drives/';
 
 export const createPlacementDrive = async (data) => {
   try {

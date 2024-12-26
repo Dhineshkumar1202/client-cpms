@@ -7,7 +7,7 @@ const JobList = () => {
 
   const fetchApplications = async () => {
     try {
-      const response = await axios.get(`https://appcollege-jsbz09o3.b4a.run/api/applications/${studentId}`);
+      const response = await axios.get(`https://cpmsapp-q59f2p6k.b4a.run/api/applications/${studentId}`);
       setApplications(response.data);
     } catch (error) {
       console.error('Error fetching applications:', error);

@@ -13,7 +13,7 @@ const CreatePlacementDrive = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://appcollege-jsbz09o3.b4a.run/api/placement-drives/create', {
+      const response = await axios.post('https://cpmsapp-q59f2p6k.b4a.run/api/placement-drives/create', {
         companyId,
         title,
         description,

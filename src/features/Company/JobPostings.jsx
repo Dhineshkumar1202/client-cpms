@@ -22,7 +22,7 @@ const JobPostings = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "https://appcollege-jsbz09o3.b4a.run/api/jobs/create",
+        "https://cpmsapp-q59f2p6k.b4a.run/api/jobs/create",
         { ...formData },
         {
           headers: {
