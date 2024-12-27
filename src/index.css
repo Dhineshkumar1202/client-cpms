@@ -1,0 +1,90 @@
+
+
+
+
+
+
+/* Global Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Dashboard Styles */
+.student-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.student-dashboard-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.student-dashboard-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #0056b3;
+}
+
+.student-dashboard-header p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.student-dashboard-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.dashboard-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.card-icon {
+  font-size: 2rem;
+  margin-right: 10px;
+  color: #007bff;
+}
+
+.card-header h2 {
+  font-size: 1.5rem;
+  color: #0056b3;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .student-dashboard-header h1 {
+    font-size: 2rem;
+  }
+
+  .student-dashboard-header p {
+    font-size: 1rem;
+  }
+
+  .card-header h2 {
+    font-size: 1.3rem;
+  }
+}

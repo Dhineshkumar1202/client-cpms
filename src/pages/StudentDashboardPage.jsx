@@ -6,33 +6,41 @@ import RecruitmentStatus from '../features/Student/RecruitmentStatus';
 const StudentDashboardPage = () => {
   return (
     <div className="student-dashboard">
-      <div className="student-dashboard-header">
+      {/* Header Section */}
+      <header className="student-dashboard-header">
         <h1>Welcome to Your Student Dashboard</h1>
         <p>Track your applications, view job statuses, and apply for opportunities!</p>
-      </div>
-      <div className="student-dashboard-content">
-        <div className="dashboard-card">
+      </header>
+
+      {/* Main Content Section */}
+      <main className="student-dashboard-content">
+        {/* Apply for New Jobs */}
+        <section className="dashboard-card">
           <div className="card-header">
             <span className="card-icon">📄</span>
             <h2>Apply for New Jobs</h2>
           </div>
           <JobForm />
-        </div>
-        <div className="dashboard-card">
+        </section>
+
+        {/* Your Job Applications */}
+        <section className="dashboard-card">
           <div className="card-header">
             <span className="card-icon">📋</span>
             <h2>Your Job Applications</h2>
           </div>
           <JobList />
-        </div>
-        <div className="dashboard-card">
+        </section>
+
+        {/* Recruitment Status */}
+        <section className="dashboard-card">
           <div className="card-header">
             <span className="card-icon">✅</span>
             <h2>Recruitment Status</h2>
           </div>
           <RecruitmentStatus />
-        </div>
-      </div>
+        </section>
+      </main>
     </div>
   );
 };
