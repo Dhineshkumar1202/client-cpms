@@ -1,41 +1,58 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const CompanyDashboard = () => {
   const [company, setCompany] = useState(null);
   const [jobStats, setJobStats] = useState({ totalJobs: 0, totalApplications: 0 });
-  const [loading, setLoading] = useState(true);
+  const [loadingCompany, setLoadingCompany] = useState(true);
+  const [loadingStats, setLoadingStats] = useState(true);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchDashboardData = async () => {
+    const fetchCompanyDetails = async () => {
       try {
         const token = localStorage.getItem("token");
+        if (!token) {
+          setError("Unauthorized. Please log in.");
+          navigate("/login");
+          return;
+        }
 
-    
+        // Fetch company details
         const companyResponse = await axios.get("https://cpmsapp-q59f2p6k.b4a.run/api/company/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
-        setCompany(companyResponse.data);
+        setCompany(companyResponse.data.company);
+      } catch (err) {
+        console.error("Error fetching company details:", err.message);
+        setError("Failed to load company details.");
+      } finally {
+        setLoadingCompany(false);
+      }
+    };
 
-    
+    const fetchDashboardStats = async () => {
+      try {
+        const token = localStorage.getItem("token");
         const statsResponse = await axios.get("https://cpmsapp-q59f2p6k.b4a.run/api/company/dashboard-stats", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setJobStats(statsResponse.data);
       } catch (err) {
-        console.error("Error loading dashboard data:", err.message);
-        setError("Failed to load dashboard data.");
+        console.error("Error fetching dashboard stats:", err.message);
+        setError("Failed to load dashboard statistics.");
       } finally {
-        setLoading(false);
+        setLoadingStats(false);
       }
     };
 
-    fetchDashboardData();
-  }, []);
+    fetchCompanyDetails();
+    fetchDashboardStats();
+  }, [navigate]);
 
-  if (loading) return <p>Loading dashboard...</p>;
+  if (loadingCompany || loadingStats) return <p>Loading dashboard...</p>;
   if (error) return <p>{error}</p>;
 
   return (
