@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
-import Sidebar from '../components/Sidebar/Sidebar';
+// import Sidebar from '../components/Sidebar/Sidebar';
 import DashboardCard from '../components/Dashboardcard/DashboardCard';
 import AcademicRecords from '../features/Admin/AcademicRecords';
 import PlacementDriveReport from '../features/Admin/PlacementDreiveReport';
