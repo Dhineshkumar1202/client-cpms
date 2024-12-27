@@ -64,3 +64,79 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+
+form {
+  width: 100%;
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form input,
+form select,
+form button {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+form input:focus,
+form select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+form button {
+  background-color: #3498db;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #2980b9;
+}
+
+form .login-link {
+  text-align: center;
+  margin-top: 10px;
+}
+
+form .login-link a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+form .login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Role-specific Fields */
+form .role-specific-fields {
+  margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+  form {
+    padding: 15px;
+  }
+
+  form input,
+  form select,
+  form button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
