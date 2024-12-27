@@ -18,7 +18,7 @@ const AdminDashboardPage = () => {
 
   return (
     <div className="admin-dashboard">
-      <Sidebar />
+      
       <div className="main-content">
         <Navbar onLogout={handleLogout} />
         <header>
