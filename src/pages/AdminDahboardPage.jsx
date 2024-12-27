@@ -6,7 +6,6 @@ import DashboardCard from '../components/Dashboardcard/DashboardCard';
 import AcademicRecords from '../features/Admin/AcademicRecords';
 import PlacementDriveReport from '../features/Admin/PlacementDreiveReport';
 import RecruitmentStatusPage from '../features/Admin/RecruitmentStatusPage';
-import './AdminDashboardPage.css';  
 
 const AdminDashboardPage = () => {
   const navigate = useNavigate();
