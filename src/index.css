@@ -253,6 +253,92 @@ section.apply-jobs button:hover {
   background-color: #45a049;
 }
 
+/* ===== JobList Section ===== */
+section.joblist {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+section.joblist h1 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
+
+section.joblist .joblist-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+section.joblist input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+section.joblist button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+section.joblist button:hover {
+  background-color: #0056b3;
+}
+
+section.joblist ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+section.joblist ul li {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+
+section.joblist ul li h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+section.joblist ul li p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+section.joblist ul li a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+section.joblist ul li a:hover {
+  text-decoration: underline;
+}
+
+section.joblist .no-applications {
+  color: #888;
+  font-style: italic;
+  text-align: center;
+}
+
 
 
 /* Admin dachboard */

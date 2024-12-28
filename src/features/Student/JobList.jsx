@@ -22,35 +22,44 @@ const JobList = () => {
 
   return (
     <div>
-     <div className="joblist-container">
-  <h1>Your Applications</h1>
-  <input
-    type="text"
-    placeholder="Enter Student ID"
-    value={studentId}
-    onChange={(e) => setStudentId(e.target.value)}
-  />
-  <button onClick={fetchApplications}>Fetch Applications</button>
+   <section className="joblist">
+  <div className="joblist-container">
+    <h1>Your Applications</h1>
+    <input
+      type="text"
+      placeholder="Enter Student ID"
+      value={studentId}
+      onChange={(e) => setStudentId(e.target.value)}
+    />
+    <button onClick={fetchApplications}>Fetch Applications</button>
 
-  <div>
-    {applications.length > 0 ? (
-      <ul>
-        {applications.map((application) => (
-          <li key={application._id}>
-            <h3>Job ID: {application.jobId}</h3>
-            <p>Status: {application.status}</p>
-            <p>
-              Resume: <a href={`https://appcollege-jsbz09o3.b4a.run/${application.resume}`} target="_blank" rel="noopener noreferrer">View Resume</a>
-            </p>
-            <p>Cover Letter: {application.coverLetter}</p>
-          </li>
-        ))}
-      </ul>
-    ) : (
-      <p className="no-applications">No applications found for this student.</p>
-    )}
+    <div>
+      {applications.length > 0 ? (
+        <ul>
+          {applications.map((application) => (
+            <li key={application._id}>
+              <h3>Job ID: {application.jobId}</h3>
+              <p>Status: {application.status}</p>
+              <p>
+                Resume:{" "}
+                <a
+                  href={`https://cpmsapp-q59f2p6k.b4a.run/${application.resume}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Resume
+                </a>
+              </p>
+              <p>Cover Letter: {application.coverLetter}</p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="no-applications">No applications found for this student.</p>
+      )}
+    </div>
   </div>
-</div>
+</section>
 
     
     </div>
