@@ -194,6 +194,64 @@ section div span {
   margin-right: 10px;
 }
 
+/* ===== JobForm Section ===== */
+section.apply-jobs {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+section.apply-jobs h1 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
+
+section.apply-jobs form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+section.apply-jobs form div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+section.apply-jobs label {
+  font-weight: bold;
+  color: #555;
+}
+
+section.apply-jobs input,
+section.apply-jobs textarea,
+section.apply-jobs button {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+section.apply-jobs textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+section.apply-jobs button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+section.apply-jobs button:hover {
+  background-color: #45a049;
+}
 
 
 

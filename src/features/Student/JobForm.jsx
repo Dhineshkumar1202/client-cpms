@@ -31,44 +31,47 @@ const JobForm = () => {
 
   return (
     <div>
-      <h1>Submit Your Application</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Student ID:</label>
-          <input
-            type="text"
-            value={studentId}
-            onChange={(e) => setStudentId(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Job ID:</label>
-          <input
-            type="text"
-            value={jobId}
-            onChange={(e) => setJobId(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Resume:</label>
-          <input
-            type="file"
-            onChange={(e) => setResume(e.target.files[0])}
-            required
-          />
-        </div>
-        <div>
-          <label>Cover Letter:</label>
-          <textarea
-            value={coverLetter}
-            onChange={(e) => setCoverLetter(e.target.value)}
-            required
-          ></textarea>
-        </div>
-        <button type="submit">Submit Application</button>
-      </form>
+     <section className="apply-jobs">
+  <h1>Submit Your Application</h1>
+  <form onSubmit={handleSubmit}>
+    <div>
+      <label>Student ID:</label>
+      <input
+        type="text"
+        value={studentId}
+        onChange={(e) => setStudentId(e.target.value)}
+        required
+      />
+    </div>
+    <div>
+      <label>Job ID:</label>
+      <input
+        type="text"
+        value={jobId}
+        onChange={(e) => setJobId(e.target.value)}
+        required
+      />
+    </div>
+    <div>
+      <label>Resume:</label>
+      <input
+        type="file"
+        onChange={(e) => setResume(e.target.files[0])}
+        required
+      />
+    </div>
+    <div>
+      <label>Cover Letter:</label>
+      <textarea
+        value={coverLetter}
+        onChange={(e) => setCoverLetter(e.target.value)}
+        required
+      ></textarea>
+    </div>
+    <button type="submit">Submit Application</button>
+  </form>
+</section>
+
     </div>
   );
 };
