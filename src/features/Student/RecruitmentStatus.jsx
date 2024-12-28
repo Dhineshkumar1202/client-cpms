@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getRecruitmentStatus } from "../../services/RecruitmentStatusService";  
+import { getRecruitmentStatus } from "../../services/RecruitmentStatusService";
 
 const RecruitmentStatus = () => {
   const [status, setStatus] = useState({
@@ -22,21 +22,23 @@ const RecruitmentStatus = () => {
   }, []);
 
   return (
-    <div className="recruitment-status">
+    <section className="recruitment-status">
       <h2>Recruitment Status</h2>
-      <div className="status-card">
-        <h3>Total Interviews</h3>
-        <p>{status.totalInterviews}</p>
+      <div className="status-cards">
+        <div className="status-card">
+          <h3>Total Interviews</h3>
+          <p>{status.totalInterviews}</p>
+        </div>
+        <div className="status-card">
+          <h3>Total Offers</h3>
+          <p>{status.totalOffers}</p>
+        </div>
+        <div className="status-card">
+          <h3>Total Participants</h3>
+          <p>{status.totalParticipants}</p>
+        </div>
       </div>
-      <div className="status-card">
-        <h3>Total Offers</h3>
-        <p>{status.totalOffers}</p>
-      </div>
-      <div className="status-card">
-        <h3>Total Participants</h3>
-        <p>{status.totalParticipants}</p>
-      </div>
-    </div>
+    </section>
   );
 };
 
