@@ -22,21 +22,18 @@ const JobForm = () => {
     formData.append('coverLetter', coverLetter);
 
     try {
-      const response = await axios.post(
-        'https://cpmsapp-q59f2p6k.b4a.run/api/upload', 
-        formData,
-        {
+      const response = await axios.post('https://cpmsapp-q59f2p6k.b4a.run/api/upload', formData, {
           headers: {
-            'Content-Type': 'multipart/form-data',
+              'Content-Type': 'multipart/form-data',
           },
-        }
-      );
-
-      alert('Application submitted successfully!');
-    } catch (error) {
-      console.error('Error submitting application:', error);
+      });
+      alert('Application submitted successfully');
+  } catch (error) {
+      console.error('Error:', error.message); 
+      console.error('Error Details:', error.response || error.config); 
       alert('Failed to submit application. Please try again.');
-    }
+  }
+  
   };
 
   return (
