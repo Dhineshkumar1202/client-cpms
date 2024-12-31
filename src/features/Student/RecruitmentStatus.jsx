@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getRecruitmentStatus } from "../../services/RecruitmentStatusService";
+import RecruitmentStatusCard from "./RecruitmentStatusCards";
 
 const RecruitmentStatus = () => {
   const [status, setStatus] = useState({
@@ -21,22 +22,40 @@ const RecruitmentStatus = () => {
     fetchStatus();
   }, []);
 
+  const cards = [
+    {
+      title: "Total Interviews",
+      value: status.totalInterviews,
+      color: "#4CAF50", // Green
+      icon: "fas fa-handshake",
+    },
+    {
+      title: "Total Offers",
+      value: status.totalOffers,
+      color: "#2196F3", // Blue
+      icon: "fas fa-briefcase",
+    },
+    {
+      title: "Total Participants",
+      value: status.totalParticipants,
+      color: "#FFC107", // Yellow
+      icon: "fas fa-users",
+    },
+  ];
+
   return (
     <section className="recruitment-status">
       <h2>Recruitment Status</h2>
       <div className="status-cards">
-        <div className="status-card">
-          <h3>Total Interviews</h3>
-          <p>{status.totalInterviews}</p>
-        </div>
-        <div className="status-card">
-          <h3>Total Offers</h3>
-          <p>{status.totalOffers}</p>
-        </div>
-        <div className="status-card">
-          <h3>Total Participants</h3>
-          <p>{status.totalParticipants}</p>
-        </div>
+        {cards.map((card, index) => (
+          <RecruitmentStatusCard
+            key={index}
+            title={card.title}
+            value={card.value}
+            color={card.color}
+            icon={card.icon}
+          />
+        ))}
       </div>
     </section>
   );
