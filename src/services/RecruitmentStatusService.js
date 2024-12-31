@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://cpmsapp-q59f2p6k.b4a.run/api";  
+const BASE_URL = "https://cpmsapp-q59f2p6k.b4a.run";  
 
 export const getRecruitmentStatus = async () => {
   try {
