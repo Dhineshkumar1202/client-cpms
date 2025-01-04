@@ -4,54 +4,51 @@ import axios from "axios";
 const AcademicRecords = ({ studentId }) => {
   const [records, setRecords] = useState([]);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true); // Added a loading state
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchRecords = async () => {
       try {
-        // Log the studentId being used for debugging
         console.log("Fetching records for studentId:", studentId);
 
         const response = await axios.get(
           `https://cpmsapp-q59f2p6k.b4a.run/api/academic-records/${studentId}`
         );
 
-        // Log the API response for debugging
         console.log("API Response:", response.data);
 
-        if (response.data && Array.isArray(response.data)) {
-          setRecords(response.data);
-        } else {
-          setRecords([]);
-        }
+        setRecords(response.data);
+        setError(null);
       } catch (error) {
         console.error(
           "Error fetching academic records:",
-          error.response || error.message
+          error.response?.data || error.message
         );
-        setError("Failed to fetch academic records. Please try again later.");
+
+        setError(
+          error.response?.data?.message ||
+          "Failed to fetch academic records. Please try again later."
+        );
       } finally {
-        setLoading(false); // Stop loading
+        setLoading(false);
       }
     };
 
     fetchRecords();
   }, [studentId]);
 
-  // Handle loading state
   if (loading) return <p>Loading academic records...</p>;
+  if (error) return <p className="text-red-500">{error}</p>;
 
-  // Handle error state
-  if (error) return <p>{error}</p>;
-
-  // Render records or a message if none are found
   return (
     <div>
-      <h3>Academic Records</h3>
+      <h3 className="text-xl font-bold mb-4">Academic Records</h3>
       {records.length > 0 ? (
-        <ul>
+        <ul className="list-disc ml-5">
           {records.map((record, index) => (
-            <li key={index}>{record}</li>
+            <li key={index}>
+              <strong>Course:</strong> {record.course}, <strong>Grade:</strong> {record.grade}, <strong>Year:</strong> {record.year}
+            </li>
           ))}
         </ul>
       ) : (
