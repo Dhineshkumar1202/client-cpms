@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar/Navbar';
 // import Sidebar from '../components/Sidebar/Sidebar';
 import DashboardCard from '../components/Dashboardcard/DashboardCard';
 import AcademicRecords from '../features/Admin/AcademicRecords';
-import PlacementDriveReport from '../features/Admin/PlacementDreiveReport';
+import PlacementDriveReport from '../features/Admin/PlacementDrive';
 import RecruitmentStatusPage from '../features/Admin/RecruitmentStatusPage';
 
 const AdminDashboardPage = () => {
