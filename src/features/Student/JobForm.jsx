@@ -15,25 +15,34 @@ const JobForm = () => {
       return;
     }
 
+    // Validate file type
+    if (!resume.name.match(/\.(pdf|doc|docx)$/)) {
+      alert('Only .pdf, .doc, or .docx files are allowed.');
+      return;
+    }
+
     const formData = new FormData();
-    formData.append('file', resume); 
+    formData.append('file', resume);
     formData.append('studentId', studentId);
     formData.append('jobId', jobId);
     formData.append('coverLetter', coverLetter);
 
+    // Log FormData for debugging
+    for (let pair of formData.entries()) {
+      console.log(pair[0] + ': ' + pair[1]);
+    }
+
     try {
-      const response = await axios.post('https://cpmsapp-q59f2p6k.b4a.run', formData, {
-          headers: {
-              'Content-Type': 'multipart/form-data',
-          },
+      const response = await axios.post('https://cpmsapp-q59f2p6k.b4a.run/api/job-applications', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
       });
       alert('Application submitted successfully');
-  } catch (error) {
-      console.error('Error:', error.message); 
-      console.error('Error Details:', error.response || error.config); 
+    } catch (error) {
+      console.error('Error:', error); // Log full error for debugging
       alert('Failed to submit application. Please try again.');
-  }
-  
+    }
   };
 
   return (
