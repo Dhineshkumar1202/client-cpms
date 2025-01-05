@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom"; // Import useNavigate and useParams
+import { useNavigate, useParams } from "react-router-dom"; 
 
 const JobUpdateForm = () => {
   const [job, setJob] = useState({
