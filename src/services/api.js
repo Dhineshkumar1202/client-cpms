@@ -1,10 +1,9 @@
 import axios from 'axios';
 
-// Create an Axios instance
+
 const axiosInstance = axios.create({
   baseURL: 'https://cpmsapp-q59f2p6k.b4a.run',  
 });
-
 
 axiosInstance.interceptors.request.use(
   (config) => {
@@ -25,7 +24,7 @@ axiosInstance.interceptors.response.use(
   (error) => {
     if (error.response?.status === 401) {
       console.error("Unauthorized: Redirecting to login...");
-      // Redirect to login page if token is invalid or expired
+    
       window.location.href = '/login';
     }
     return Promise.reject(error);

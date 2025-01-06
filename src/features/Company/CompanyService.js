@@ -12,6 +12,8 @@ export const registerCompany = async (companyData) => {
 };
 
 
+
+
 export const loginCompany = async (credentials) => {
   try {
     const response = await axios.post(`${API_BASE_URL}/companies/login`, credentials);
@@ -20,6 +22,8 @@ export const loginCompany = async (credentials) => {
     throw new Error(`Error logging in: ${error.response?.data?.message || error.message}`);
   }
 };
+
+
 
 
 export const updateCompany = async (companyId, companyData, token) => {

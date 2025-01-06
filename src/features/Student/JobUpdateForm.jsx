@@ -46,6 +46,9 @@ const JobUpdateForm = () => {
       .catch(error => console.error('Error updating job:', error));
   };
 
+
+
+  
   return (
     <div>
       <h1>Update Job</h1>

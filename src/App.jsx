@@ -27,7 +27,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
 
-      {/* Student Dashboard */}
+   
       <Route
         path="/student-dashboard"
         element={
@@ -39,7 +39,7 @@ function App() {
         }
       />
 
-      {/* Admin Dashboard */}
+   
       <Route
         path="/admin-dashboard"
         element={
@@ -51,7 +51,7 @@ function App() {
         }
       />
 
-      {/* Company Dashboard */}
+  
       <Route
         path="/company-dashboard"
         element={

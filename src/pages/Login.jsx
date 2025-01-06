@@ -25,16 +25,15 @@ const LoginForm = () => {
       const data = await response.json();
 
       if (response.ok) {
-        // Save token and role to localStorage
+       
         localStorage.setItem("authToken", data.token);
         localStorage.setItem("userRole", data.role);
 
         console.log("Login successful, role:", data.role);
 
-        // Update authState using setUser
         setUser({ token: data.token, role: data.role });
 
-        // Redirect based on role
+   
         if (data.role === "student") {
           navigate("/student-dashboard");
         } else if (data.role === "admin") {

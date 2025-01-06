@@ -15,7 +15,7 @@ const JobForm = () => {
       return;
     }
 
-    // Validate file type
+
     if (!resume.name.match(/\.(pdf|doc|docx)$/)) {
       alert('Only .pdf, .doc, or .docx files are allowed.');
       return;
@@ -27,7 +27,6 @@ const JobForm = () => {
     formData.append('jobId', jobId);
     formData.append('coverLetter', coverLetter);
 
-    // Log FormData for debugging
     for (let pair of formData.entries()) {
       console.log(pair[0] + ': ' + pair[1]);
     }
@@ -40,7 +39,7 @@ const JobForm = () => {
       });
       alert('Application submitted successfully');
     } catch (error) {
-      console.error('Error:', error); // Log full error for debugging
+      console.error('Error:', error); 
       alert('Failed to submit application. Please try again.');
     }
   };

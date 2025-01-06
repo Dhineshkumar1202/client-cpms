@@ -30,6 +30,9 @@ const JobDetails = () => {
     fetchJob();
   }, [jobId]);
 
+
+
+
   const handleDelete = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -45,9 +48,12 @@ const JobDetails = () => {
     }
   };
 
+
+
   if (loading) return <p>Loading job details...</p>;
   if (error) return <p>{error}</p>;
 
+  
   return (
     <div>
       <h2>Job Details</h2>

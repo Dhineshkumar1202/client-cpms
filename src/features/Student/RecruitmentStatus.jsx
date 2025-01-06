@@ -26,19 +26,19 @@ const RecruitmentStatus = () => {
     {
       title: "Total Interviews",
       value: status.totalInterviews,
-      color: "#4CAF50", // Green
+      color: "#4CAF50",
       icon: "fas fa-handshake",
     },
     {
       title: "Total Offers",
       value: status.totalOffers,
-      color: "#2196F3", // Blue
+      color: "#2196F3", 
       icon: "fas fa-briefcase",
     },
     {
       title: "Total Participants",
       value: status.totalParticipants,
-      color: "#FFC107", // Yellow
+      color: "#FFC107", 
       icon: "fas fa-users",
     },
   ];

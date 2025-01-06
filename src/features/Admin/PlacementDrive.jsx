@@ -32,15 +32,22 @@ const PlacementDrives = () => {
     }
   };
 
+
+
+
   // Add or update a placement drive
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       if (editingDrive) {
-        // Update placement drive
+      
+        
+
         await axios.put(`${API_URL}/${editingDrive._id}`, formData);
       } else {
-        // Add new placement drive
+       
+        
+
         await axios.post(API_URL, formData);
       }
       fetchPlacementDrives();
@@ -59,7 +66,8 @@ const PlacementDrives = () => {
     }
   };
 
-  // Delete a placement drive
+  // Delete 
+  
   const handleDelete = async (id) => {
     try {
       await axios.delete(`${API_URL}/${id}`);
@@ -69,7 +77,8 @@ const PlacementDrives = () => {
     }
   };
 
-  // Edit a placement drive
+  // Edit 
+  
   const handleEdit = (drive) => {
     setEditingDrive(drive);
     setFormData({
@@ -91,10 +100,12 @@ const PlacementDrives = () => {
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Placement Drives</h1>
 
-      {/* Error Message */}
+   
+   
       {error && <p className="text-red-500 mb-4">{error}</p>}
 
-      {/* Placement Drives Table */}
+      
+      
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -139,7 +150,8 @@ const PlacementDrives = () => {
         </table>
       )}
 
-      {/* Form for Adding/Editing Placement Drive */}
+    
+    
       <form onSubmit={handleSubmit} className="bg-gray-100 p-4 rounded">
         <h2 className="text-xl font-bold mb-2">{editingDrive ? "Edit Placement Drive" : "Add Placement Drive"}</h2>
         <div className="mb-2">

@@ -14,11 +14,16 @@ const CompanyDashboardPage = () => {
       try {
         const token = localStorage.getItem("token");
 
+
+        
         // Fetch company details
         const companyResponse = await axios.get("https://cpmsapp-q59f2p6k.b4a.run/api/company/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setCompany(companyResponse.data);
+
+
+
 
         // Fetch job statistics
         const statsResponse = await axios.get("https://cpmsapp-q59f2p6k.b4a.run/api/company/dashboard-stats", {
@@ -38,6 +43,9 @@ const CompanyDashboardPage = () => {
 
   if (loading) return <p>Loading dashboard...</p>;
   if (error) return <p>{error}</p>;
+
+
+
 
   return (
     <div className="company-dashboard">

@@ -11,18 +11,24 @@ const AuthProvider = ({ children }) => {
     token: null,
   });
 
-  // Function to set user state and persist token/role in localStorage
+
+
   const setUser = (userData) => {
     const token = userData.token || localStorage.getItem("authToken");
     const role = userData.role || localStorage.getItem("userRole");
 
   
 
-    // Update localStorage
+
+
+ 
     localStorage.setItem("authToken", token);
     localStorage.setItem("userRole", role);
 
-    // Update context state
+
+
+
+
     setAuthState({
       user: userData,
       isAuthenticated: !!token,
@@ -31,7 +37,11 @@ const AuthProvider = ({ children }) => {
     });
   };
 
-  // Initialize authState on app load
+
+
+
+
+
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     const role = localStorage.getItem("userRole");
@@ -48,7 +58,10 @@ const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  // Logout function to clear local storage and reset authState
+
+
+
+ 
   const logout = () => {
     console.log("Logging out. Clearing authState and localStorage.");
     localStorage.removeItem("authToken");

@@ -15,6 +15,8 @@ export const fetchAllJobs = async (page = 1, limit = 10) => {
 };
 
 
+
+
 export const fetchJobsByCompany = async (token) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/jobs/company`, {
@@ -25,6 +27,9 @@ export const fetchJobsByCompany = async (token) => {
     throw new Error(`Error fetching company jobs: ${error.response?.data?.message || error.message}`);
   }
 };
+
+
+
 
 
 export const createJob = async (jobData, token) => {
@@ -48,6 +53,9 @@ export const updateJob = async (jobId, jobData, token) => {
     throw new Error(`Error updating job: ${error.response?.data?.message || error.message}`);
   }
 };
+
+
+
 
 
 export const deleteJob = async (jobId, token) => {

@@ -59,11 +59,11 @@
   
   .sidebar-link:hover {
     color: #fff;
-    background-color: #4caf50; /* Green background on hover */
+    background-color: #4caf50; 
   }
   
   .sidebar-item:hover {
-    background-color: #3e4a63; /* Slight background change when hovering over the item */
+    background-color: #3e4a63;
   }
   
   /* Sidebar Icon */
@@ -96,7 +96,7 @@
     color: #4caf50;
   }
   
-  /* Sidebar Footer (Optional for logout or additional options) */
+  /* Sidebar Footer */
   .sidebar-footer {
     margin-top: auto;
     padding: 10px;

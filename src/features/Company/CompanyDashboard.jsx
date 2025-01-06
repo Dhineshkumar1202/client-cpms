@@ -33,6 +33,8 @@ const CompanyDashboard = () => {
       }
     };
 
+
+
     const fetchDashboardStats = async () => {
       try {
         const token = localStorage.getItem("token");
@@ -48,6 +50,8 @@ const CompanyDashboard = () => {
       }
     };
 
+
+    
     fetchCompanyDetails();
     fetchDashboardStats();
   }, [navigate]);

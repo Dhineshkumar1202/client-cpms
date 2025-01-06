@@ -11,6 +11,8 @@ const AcademicRecords = () => {
 
   const API_URL = "https://cpmsapp-q59f2p6k.b4a.run/api/academic-records"; // Replace with your backend endpoint
 
+
+
   // Fetch records for a student
   const fetchRecords = async () => {
     try {
@@ -25,15 +27,19 @@ const AcademicRecords = () => {
     }
   };
 
+
+
   // Add or update record
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       if (editingRecord) {
-        // Update record
+     
+        
         await axios.put(`${API_URL}/${editingRecord._id}`, formData);
       } else {
-        // Add new record
+      
+        
         await axios.post(API_URL, formData);
       }
       fetchRecords();
@@ -54,17 +60,24 @@ const AcademicRecords = () => {
     }
   };
 
+
+
   // Edit record
   const handleEdit = (record) => {
     setEditingRecord(record);
     setFormData({ studentId: record.studentId, subject: record.subject, grade: record.grade });
   };
 
+
+
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Academic Records</h1>
 
-      {/* Search Section */}
+
+
+   
+   
       <div className="mb-4">
         <input
           type="text"
@@ -78,10 +91,12 @@ const AcademicRecords = () => {
         </button>
       </div>
 
-      {/* Error Message */}
+     
+     
       {error && <p className="text-red-500 mb-4">{error}</p>}
 
-      {/* Records List */}
+  
+  
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -118,7 +133,8 @@ const AcademicRecords = () => {
         </table>
       )}
 
-      {/* Form */}
+ 
+ 
       <form onSubmit={handleSubmit} className="bg-gray-100 p-4 rounded">
         <h2 className="text-xl font-bold mb-2">{editingRecord ? "Edit Record" : "Add Record"}</h2>
         <div className="mb-2">
