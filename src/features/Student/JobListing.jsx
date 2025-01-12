@@ -19,7 +19,7 @@ const JobListing = () => {
     fetchJobs();
   }, []);
 
-  // Filter jobs based on the filter input
+ 
   const filteredJobs = jobs.filter((job) =>
     job.subject.toLowerCase().includes(filter.toLowerCase())
   );
