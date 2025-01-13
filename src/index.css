@@ -67,6 +67,16 @@ body {
 
 
 /* General Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7fa;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
 /* Form Styling */
 form {
@@ -79,25 +89,18 @@ form {
   text-align: center;
 }
 
-
-
-/* Additional styling for the course and year fields */
-input[name="additionalData.course"],
-input[name="additionalData.year"] {
-  display: inline-block;
-  width: 45%;
-  margin-right: 10px;
+/* Form Inputs */
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
-input[name="additionalData.year"] {
-  margin-left: 10px;
-}
-
-/* Apply a small margin between inputs */
-input[type="number"]:focus,
-input[type="text"]:focus {
-  border-color: #007bff;
-  outline: none;
+input[type="password"] {
+  font-family: 'Arial', sans-serif;
 }
 
 button {
