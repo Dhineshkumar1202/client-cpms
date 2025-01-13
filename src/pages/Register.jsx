@@ -128,27 +128,27 @@ const SignupPage = () => {
             </select>
 
             {formData.role === "student" && (
-                <>
-                    <input
-                        name="additionalData.course"
-                        placeholder="Course"
-                        value={formData.additionalData.course}
-                        onChange={handleChange}
-                        aria-label="Course"
-                    />
-                    {errors.course && <span className="error">{errors.course}</span>}
+    <>
+        <input
+            name="additionalData.course"
+            placeholder="Course"
+            value={formData.additionalData.course}
+            onChange={handleChange}
+            aria-label="Course"
+        />
+        {errors.course && <span className="error">{errors.course}</span>}
 
-                    <input
-                        name="additionalData.year"
-                        placeholder="Year"
-                        type="number"
-                        value={formData.additionalData.year}
-                        onChange={handleChange}
-                        aria-label="Year"
-                    />
-                    {errors.year && <span className="error">{errors.year}</span>}
-                </>
-            )}
+        <input
+            name="additionalData.year"
+            placeholder="Year"
+            type="number"
+            value={formData.additionalData.year}
+            onChange={handleChange}
+            aria-label="Year"
+        />
+        {errors.year && <span className="error">{errors.year}</span>}
+    </>
+)}
 
             {formData.role === "admin" && (
                 <input

@@ -92,6 +92,35 @@ input, select {
 input[type="password"] {
   font-family: 'Arial', sans-serif;
 }
+/* Ensure the input fields are not hidden */
+input[type="number"], input[type="text"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Additional styling for the course and year fields */
+input[name="additionalData.course"],
+input[name="additionalData.year"] {
+  display: inline-block;
+  width: 45%;
+  margin-right: 10px;
+}
+
+input[name="additionalData.year"] {
+  margin-left: 10px;
+}
+
+/* Apply a small margin between inputs */
+input[type="number"]:focus,
+input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
 
 button {
   background-color: #007bff;
