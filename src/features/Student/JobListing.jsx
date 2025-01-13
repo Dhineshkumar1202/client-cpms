@@ -9,7 +9,7 @@ const JobListing = () => {
    
     const fetchJobs = async () => {
       try {
-        const response = await axios.get('https://cpmsapp-q59f2p6k.b4a.run/api/jobs'); 
+        const response = await axios.get('https://cpmsapp-q59f2p6k.b4a.run/api/jobs/'); 
         setJobs(response.data);
       } catch (err) {
         console.error('Error fetching jobs:', err.message);
