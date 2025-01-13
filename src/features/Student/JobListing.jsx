@@ -4,12 +4,14 @@ import axios from 'axios';
 const JobListing = () => {
   const [jobs, setJobs] = useState([]);
   const [filter, setFilter] = useState('');
-
+  const token = localStorage.getItem("authToken");
   useEffect(() => {
    
     const fetchJobs = async () => {
       try {
-        const response = await axios.get('https://cpmsapp-q59f2p6k.b4a.run/api/jobs/'); 
+        const response = await axios.get('https://cpmsapp-q59f2p6k.b4a.run/api/jobs',{ headers: { Authorization: `Bearer ${token}` } }); 
+        
+
         setJobs(response.data);
       } catch (err) {
         console.error('Error fetching jobs:', err.message);
