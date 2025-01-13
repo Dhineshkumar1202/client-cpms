@@ -79,29 +79,7 @@ form {
   text-align: center;
 }
 
-/* Form Inputs */
-input, select {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
 
-input[type="password"] {
-  font-family: 'Arial', sans-serif;
-}
-/* Ensure the input fields are not hidden */
-input[type="number"], input[type="text"] {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
 
 /* Additional styling for the course and year fields */
 input[name="additionalData.course"],
