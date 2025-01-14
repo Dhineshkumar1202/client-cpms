@@ -5,12 +5,27 @@ import RecruitmentStatus from '../features/Student/RecruitmentStatus';
 import JobListing from '../features/Student/JobListing';
 
 const StudentDashboardPage = () => {
+  const handleLogout = () => {
+    
+    console.log('Logged out');
+  };
+
   return (
     <div>
       <header>
         <h1>Welcome to Your Student Dashboard</h1>
         <p>Track your applications, view job statuses, and apply for opportunities!</p>
       </header>
+
+      <aside>
+        <div className="profile">
+          <h3>Your Profile</h3>
+          <p>Name: John Doe</p> {/* This can be dynamic depending on the logged-in user */}
+          <p>Email: john.doe@email.com</p> {/* Dynamic user data */}
+        </div>
+
+        <button onClick={handleLogout} className="logout-button">Logout</button>
+      </aside>
 
       <main>
         {/* Apply for New Jobs */}

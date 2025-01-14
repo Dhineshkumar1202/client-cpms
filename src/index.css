@@ -373,6 +373,28 @@ section.joblist .no-applications {
   text-align: center;
 }
 
+aside {
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+}
+
+.profile {
+  margin-bottom: 20px;
+}
+
+.logout-button {
+  padding: 10px 20px;
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #e04344;
+}
 
 
 /* ===== Recruitment Status Section ===== */
