@@ -13,7 +13,6 @@ const StudentDashboardPage = () => {
       </header>
 
       <main>
-        {/* Apply for New Jobs */}
         <section>
           <div>
             <span>📄</span>
@@ -21,17 +20,13 @@ const StudentDashboardPage = () => {
           </div>
           <JobForm />
         </section>
-
-        {/* Job Listings */}
         <section>
           <div>
             <span>💼</span>
             <h2>Job Listings</h2>
           </div>
-          <JobListing /> {/* Render JobListing component */}
+          <JobListing /> 
         </section>
-
-        {/* Your Job Applications */}
         <section>
           <div>
             <span>📋</span>
@@ -39,8 +34,6 @@ const StudentDashboardPage = () => {
           </div>
           <JobList />
         </section>
-
-        {/* Recruitment Status */}
         <section>
           <div>
             <span>✅</span>
