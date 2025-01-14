@@ -11,7 +11,6 @@ const StudentDashboardPage = () => {
         <h1>Welcome to Your Student Dashboard</h1>
         <p>Track your applications, view job statuses, and apply for opportunities!</p>
       </header>
-
       <main>
         <section>
           <div>
