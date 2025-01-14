@@ -1,16 +1,11 @@
 /* General Styles */
 body {
+  margin: 0;
   font-family: 'Arial', sans-serif;
   background-color: #f4f4f9;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  color: #333;
 }
 
-/* Container Styling */
 .container {
   display: flex;
   flex-direction: column;
@@ -46,34 +41,20 @@ body {
   margin-bottom: 20px;
 }
 
-/* Base Button Styling */
-.btn {
+.content .button {
   display: inline-block;
   padding: 12px 24px;
   font-size: 1rem;
   font-weight: bold;
+  /* color: #fff; */
+  /* background-color: #3498db; */
   border-radius: 5px;
   text-decoration: none;
   transition: background-color 0.3s ease;
-  text-align: center;
 }
 
-.btn-primary {
-  background-color: #3498db;
-  color: white;
-}
-
-.btn-primary:hover {
+.content .button:hover {
   background-color: #2980b9;
-}
-
-.btn-danger {
-  background-color: #e74c3c;
-  color: white;
-}
-
-.btn-danger:hover {
-  background-color: #c0392b;
 }
 
 /* Image Section */
@@ -83,6 +64,19 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+
+/* General Styling */
+/* body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7fa;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+} */
 
 /* Form Styling */
 form {
@@ -95,6 +89,7 @@ form {
   text-align: center;
 }
 
+/* Form Inputs */
 input, select {
   width: 100%;
   padding: 10px;
@@ -180,21 +175,27 @@ select:focus {
   }
 }
 
-/* Student Dashboard Page Styles */
-header.dashboard-header {
+
+
+/* StudentDashboardPage.css */
+body {
+  font-family: Arial, sans-serif;
+}
+
+header {
   background-color: #f4f4f9;
   padding: 20px;
   text-align: center;
   border-bottom: 2px solid #ddd;
 }
 
-header.dashboard-header h1 {
+header h1 {
   margin: 0;
   font-size: 2rem;
   color: #333;
 }
 
-header.dashboard-header p {
+header p {
   margin: 5px 0 0;
   color: #666;
 }
@@ -227,31 +228,154 @@ section div span {
   margin-right: 10px;
 }
 
-/* Profile and Logout Styling */
-aside {
+/* ===== JobForm Section ===== */
+section.apply-jobs {
+  margin-top: 20px;
   padding: 20px;
-  background-color: #f4f4f4;
+  border: 1px solid #ddd;
   border-radius: 8px;
+  background-color: #f9f9f9;
 }
 
-.profile {
-  margin-bottom: 20px;
+section.apply-jobs h1 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
 }
 
-.logout-button {
-  padding: 10px 20px;
-  background-color: #ff4d4f;
+section.apply-jobs form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+section.apply-jobs form div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+section.apply-jobs label {
+  font-weight: bold;
+  color: #555;
+}
+
+section.apply-jobs input,
+section.apply-jobs textarea,
+section.apply-jobs button {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+section.apply-jobs textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+section.apply-jobs button {
+  background-color: #4caf50;
   color: white;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.logout-button:hover {
-  background-color: #e04344;
+section.apply-jobs button:hover {
+  background-color: #45a049;
 }
 
-/* Recruitment Status Section */
+/* ===== JobList Section ===== */
+section.joblist {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+section.joblist h1 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
+
+section.joblist .joblist-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+section.joblist input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+section.joblist button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+section.joblist button:hover {
+  background-color: #0056b3;
+}
+
+section.joblist ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+section.joblist ul li {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+
+section.joblist ul li h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+section.joblist ul li p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+section.joblist ul li a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+section.joblist ul li a:hover {
+  text-decoration: underline;
+}
+
+section.joblist .no-applications {
+  color: #888;
+  font-style: italic;
+  text-align: center;
+}
+
+
+
+/* ===== Recruitment Status Section ===== */
 .recruitment-status {
   margin-top: 20px;
   padding: 20px;
@@ -296,19 +420,142 @@ aside {
   font-weight: bold;
 }
 
+
+
+/* Admin dachboard */
+
+.admin-dashboard {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+  background-color: #3498db;
+}
+
+/* Main Content */
+.main-content {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+header {
+  background-color: #3498db;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar button {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navbar button:hover {
+  background-color: #c0392b;
+}
+
+/* Dashboard Cards */
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.dashboard-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.dashboard-card .icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.dashboard-card h3 {
+  font-size: 1.25rem;
+  margin: 10px 0;
+}
+
+.dashboard-card p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Section Styling */
+.section {
+  background-color: #fff;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    gap: 15px;
+  .sidebar {
+    display: none;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
   }
 
   .dashboard-cards {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  }
-
-  .profile,
-  .logout-button {
-    width: 100%;
   }
 }
