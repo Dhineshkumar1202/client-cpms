@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import signupImage from '../assets/pic.jpg'; 
 
 const SignupPage = () => {
     const [formData, setFormData] = useState({
@@ -83,111 +83,116 @@ const SignupPage = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h2>Sign Up</h2>
-            <input
-                name="name"
-                placeholder="Name"
-                value={formData.name}
-                onChange={handleChange}
-                aria-label="Name"
-                required
-            />
-            {errors.name && <span className="error">{errors.name}</span>}
-            
-            <input
-                name="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleChange}
-                aria-label="Email"
-                required
-            />
-            {errors.email && <span className="error">{errors.email}</span>}
-            
-            <input
-                name="password"
-                placeholder="Password"
-                type="password"
-                value={formData.password}
-                onChange={handleChange}
-                aria-label="Password"
-                required
-            />
-            {errors.password && <span className="error">{errors.password}</span>}
-            
-            <select
-                name="role"
-                value={formData.role}
-                onChange={handleChange}
-                aria-label="Role"
-            >
-                <option value="student">Student</option>
-                <option value="admin">Admin</option>
-                <option value="company">Company</option>
-            </select>
-
-            {formData.role === "student" && (
-    <>
-        <input
-            name="additionalData.course"
-            placeholder="Course"
-            value={formData.additionalData.course}
-            onChange={handleChange}
-            aria-label="Course"
-        />
-        {errors.course && <span className="error">{errors.course}</span>}
-
-        <input
-            name="additionalData.year"
-            placeholder="Year"
-            type="number"
-            value={formData.additionalData.year}
-            onChange={handleChange}
-            aria-label="Year"
-        />
-        {errors.year && <span className="error">{errors.year}</span>}
-    </>
-)}
-
-            {formData.role === "admin" && (
-                <input
-                    name="additionalData.department"
-                    placeholder="Department"
-                    value={formData.additionalData.department}
-                    onChange={handleChange}
-                    aria-label="Department"
-                />
-            )}
-
-            {formData.role === "company" && (
-                <>
-                    <input
-                        name="additionalData.companyName"
-                        placeholder="Company Name"
-                        value={formData.additionalData.companyName}
-                        onChange={handleChange}
-                        aria-label="Company Name"
-                    />
-                    {errors.companyName && <span className="error">{errors.companyName}</span>}
-
-                    <input
-                        name="additionalData.website"
-                        placeholder="Website"
-                        value={formData.additionalData.website}
-                        onChange={handleChange}
-                        aria-label="Website"
-                    />
-                    {errors.website && <span className="error">{errors.website}</span>}
-                </>
-            )}
-
-            <button type="submit">Sign Up</button>
-            
-            <div className="login-link">
-                Already have an account? <a href="/login">Log in</a>
+        <div className="signup-page">
+            <div className="image-container">
+                <img src={signupImage} alt="Signup Banner" className="signup-banner" />
             </div>
-        </form>
+            <form onSubmit={handleSubmit}>
+                <h2>Sign Up</h2>
+                <input
+                    name="name"
+                    placeholder="Name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    aria-label="Name"
+                    required
+                />
+                {errors.name && <span className="error">{errors.name}</span>}
+
+                <input
+                    name="email"
+                    placeholder="Email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    aria-label="Email"
+                    required
+                />
+                {errors.email && <span className="error">{errors.email}</span>}
+
+                <input
+                    name="password"
+                    placeholder="Password"
+                    type="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    aria-label="Password"
+                    required
+                />
+                {errors.password && <span className="error">{errors.password}</span>}
+
+                <select
+                    name="role"
+                    value={formData.role}
+                    onChange={handleChange}
+                    aria-label="Role"
+                >
+                    <option value="student">Student</option>
+                    <option value="admin">Admin</option>
+                    <option value="company">Company</option>
+                </select>
+
+                {formData.role === "student" && (
+                    <>
+                        <input
+                            name="additionalData.course"
+                            placeholder="Course"
+                            value={formData.additionalData.course}
+                            onChange={handleChange}
+                            aria-label="Course"
+                        />
+                        {errors.course && <span className="error">{errors.course}</span>}
+
+                        <input
+                            name="additionalData.year"
+                            placeholder="Year"
+                            type="number"
+                            value={formData.additionalData.year}
+                            onChange={handleChange}
+                            aria-label="Year"
+                        />
+                        {errors.year && <span className="error">{errors.year}</span>}
+                    </>
+                )}
+
+                {formData.role === "admin" && (
+                    <input
+                        name="additionalData.department"
+                        placeholder="Department"
+                        value={formData.additionalData.department}
+                        onChange={handleChange}
+                        aria-label="Department"
+                    />
+                )}
+
+                {formData.role === "company" && (
+                    <>
+                        <input
+                            name="additionalData.companyName"
+                            placeholder="Company Name"
+                            value={formData.additionalData.companyName}
+                            onChange={handleChange}
+                            aria-label="Company Name"
+                        />
+                        {errors.companyName && <span className="error">{errors.companyName}</span>}
+
+                        <input
+                            name="additionalData.website"
+                            placeholder="Website"
+                            value={formData.additionalData.website}
+                            onChange={handleChange}
+                            aria-label="Website"
+                        />
+                        {errors.website && <span className="error">{errors.website}</span>}
+                    </>
+                )}
+
+                <button type="submit">Sign Up</button>
+
+                <div className="login-link">
+                    Already have an account? <a href="/login">Log in</a>
+                </div>
+            </form>
+        </div>
     );
 };
 
