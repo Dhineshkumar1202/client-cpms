@@ -1,34 +1,23 @@
 import axios from 'axios';
 
+const API_BASE_URL = 'https://cpmsapp-q59f2p6k.b4a.run/api'; // Replace with your backend base URL
 
-const axiosInstance = axios.create({
-  baseURL: 'https://cpmsapp-q59f2p6k.b4a.run',  
-});
-
-axiosInstance.interceptors.request.use(
-  (config) => {
-    const token = localStorage.getItem('token'); 
-    if (token) {
-      config.headers['Authorization'] = `Bearer ${token}`;
-    }
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
+// Fetch student profile by ID
+export const fetchStudentProfile = async (id) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/students/${id}`);
+    return response.data;
+  } catch (error) {
+    throw error.response.data;
   }
-);
+};
 
-
-axiosInstance.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response?.status === 401) {
-      console.error("Unauthorized: Redirecting to login...");
-    
-      window.location.href = '/login';
-    }
-    return Promise.reject(error);
+// Update student profile
+export const updateStudentProfile = async (id, profileData) => {
+  try {
+    const response = await axios.put(`${API_BASE_URL}/students/${id}`, profileData);
+    return response.data;
+  } catch (error) {
+    throw error.response.data;
   }
-);
-
-export default axiosInstance;
+};
