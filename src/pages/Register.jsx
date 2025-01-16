@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import signupImage from '../assets/pic1.jpg'; 
+
 
 const SignupPage = () => {
     const [formData, setFormData] = useState({
