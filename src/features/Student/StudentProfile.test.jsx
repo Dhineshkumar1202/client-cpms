@@ -8,9 +8,9 @@ jest.mock('./apiService');
 
 describe('StudentProfile Component', () => {
   const mockStudent = {
-    name: 'John Doe',
-    contact: '1234567890',
-    academicRecords: 'B.Sc Computer Science',
+    name: 'Vinoth kumar',
+    contact: '1122334455',
+    academicRecords: 'Full Stack developer',
   };
 
   beforeEach(() => {
