@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://cpmsapp-q59f2p6k.b4a.run/api'; // Replace with your backend base URL
+const API_BASE_URL = 'https://cpmsapp-q59f2p6k.b4a.run/api'; 
 
 // Fetch student profile by ID
 export const fetchStudentProfile = async (id) => {
