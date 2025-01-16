@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import StudentProfile from '../pages/ProfilePage';
-import * as apiService from '../services/api';
+import StudentProfile from '../../pages/ProfilePage';
+import * as apiService from '../../services/api';
 
 // Mock the API service
 jest.mock('./apiService');
