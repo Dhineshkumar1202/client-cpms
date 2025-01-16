@@ -84,9 +84,6 @@ const SignupPage = () => {
 
     return (
         <div className="signup-page">
-            <div className="image-container">
-                <img src={signupImage} alt="Signup Banner" className="signup-banner" />
-            </div>
             <form onSubmit={handleSubmit}>
                 <h2>Sign Up</h2>
                 <input
