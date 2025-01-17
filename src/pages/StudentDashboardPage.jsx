@@ -1,18 +1,34 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import JobForm from '../features/Student/JobForm';
 import JobList from '../features/Student/JobList';
 import RecruitmentStatus from '../features/Student/RecruitmentStatus';
 import JobListing from '../features/Student/JobListing';
 
 const StudentDashboardPage = () => {
-  const handleLogout = () => {
-    // Logic for logout
-    console.log("User logged out");
+  const navigate = useNavigate(); 
+
+  const handleLogout = async () => {
+    try {
+      
+      localStorage.removeItem("token"); 
+      sessionStorage.removeItem("token"); 
+
+      
+      await fetch("https://cpmsapp-q59f2p6k.b4a.run/logout", {
+        method: "POST",
+        credentials: "include", 
+      });
+
+      console.log("User logged out");
+      navigate("/login"); 
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
   };
 
   const handleProfile = () => {
-    // Logic for navigating to the profile page
-    console.log("Navigating to profile");
+    navigate("/profile"); 
   };
 
   return (
