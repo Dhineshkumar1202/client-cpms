@@ -6,6 +6,7 @@ import Signup from "./pages/Register";
 import StudentDashboard from "./pages/StudentDashboardPage";
 import AdminDashboard from "./pages/AdminDahboardPage"; 
 import CompanyDashboard from "./pages/CompanyDashboardPage";
+import ProfilePage from "./pages/ProfilePage"; // Import Profile Page
 import { useAuth } from "./context/AuthContext";
 
 const ProtectedRoute = ({ isAuthenticated, children, redirectTo = "/login" }) => {
@@ -19,15 +20,12 @@ const RoleBasedRoute = ({ role, allowedRoles, children, redirectTo = "/login" })
 function App() {
   const { authState } = useAuth();
 
- 
-
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
 
-   
       <Route
         path="/student-dashboard"
         element={
@@ -39,7 +37,15 @@ function App() {
         }
       />
 
-   
+      <Route
+        path="/profile"
+        element={
+          <ProtectedRoute isAuthenticated={authState.isAuthenticated}>
+            <ProfilePage />
+          </ProtectedRoute>
+        }
+      />
+
       <Route
         path="/admin-dashboard"
         element={
@@ -51,7 +57,6 @@ function App() {
         }
       />
 
-  
       <Route
         path="/company-dashboard"
         element={
