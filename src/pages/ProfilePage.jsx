@@ -19,7 +19,7 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/profile', formData);
+      const response = await axios.post('https://cpmsapp-q59f2p6k.b4a.run/api/profile', formData);
       setMessage('Profile created successfully!');
       setFormData({
         name: '',
