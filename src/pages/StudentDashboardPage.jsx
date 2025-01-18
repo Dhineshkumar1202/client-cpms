@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../components/Navbar';  // Import Navbar
+import Navbar from '../components/Navbar';  
 import JobForm from '../features/Student/JobForm';
 import JobList from '../features/Student/JobList';
 import RecruitmentStatus from '../features/Student/RecruitmentStatus';
