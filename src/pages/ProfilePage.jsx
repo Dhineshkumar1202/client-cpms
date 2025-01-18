@@ -10,7 +10,7 @@ const Profile = () => {
     department: '',
     year: '',
     course: '',
-    userId: '', // Assuming this will be fetched or provided
+    userId: '', 
   });
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
