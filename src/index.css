@@ -167,6 +167,87 @@ body {
 
 
 
+
+/* Login Form Container */
+form {
+  background: #ffffff;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 400px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+form h2 {
+  margin-bottom: 15px;
+  color: #343a40;
+}
+
+form p {
+  margin-bottom: 20px;
+  color: #6c757d;
+}
+
+/* Input Fields */
+form input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+form input:focus {
+  border-color: #495057;
+  outline: none;
+}
+
+/* Button */
+form button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+form button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Login Link */
+form .login-link {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+form .login-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+form .login-link a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
 /* StudentDashboardPage.css */
 body {
   font-family: Arial, sans-serif;
