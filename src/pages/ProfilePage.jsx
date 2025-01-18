@@ -8,6 +8,9 @@ const Profile = () => {
     email: '',
     age: '',
     department: '',
+    year: '',
+    course: '',
+    userId: '', // Assuming this will be fetched or provided
   });
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
@@ -32,9 +35,12 @@ const Profile = () => {
         email: '',
         age: '',
         department: '',
+        year: '',
+        course: '',
+        userId: '',
       });
       setTimeout(() => {
-        navigate('/dashboard'); 
+        navigate('/dashboard');
       }, 2000);
     } catch (error) {
       setMessage(`Error: ${error.response?.data?.error || 'Unable to create profile'}`);
@@ -56,6 +62,7 @@ const Profile = () => {
         </p>
       )}
       <form onSubmit={handleSubmit}>
+        {/* Name */}
         <div className="mb-4">
           <label className="block text-gray-700 font-medium mb-2">Name</label>
           <input
@@ -68,6 +75,8 @@ const Profile = () => {
             required
           />
         </div>
+
+        {/* Email */}
         <div className="mb-4">
           <label className="block text-gray-700 font-medium mb-2">Email</label>
           <input
@@ -80,6 +89,8 @@ const Profile = () => {
             required
           />
         </div>
+
+        {/* Age */}
         <div className="mb-4">
           <label className="block text-gray-700 font-medium mb-2">Age</label>
           <input
@@ -92,6 +103,8 @@ const Profile = () => {
             required
           />
         </div>
+
+        {/* Department */}
         <div className="mb-4">
           <label className="block text-gray-700 font-medium mb-2">Department</label>
           <input
@@ -104,6 +117,50 @@ const Profile = () => {
             required
           />
         </div>
+
+        {/* Year */}
+        <div className="mb-4">
+          <label className="block text-gray-700 font-medium mb-2">Year</label>
+          <input
+            type="text"
+            name="year"
+            value={formData.year}
+            onChange={handleChange}
+            className="w-full border rounded p-2"
+            placeholder="Enter your year (e.g., 2024)"
+            required
+          />
+        </div>
+
+        {/* Course */}
+        <div className="mb-4">
+          <label className="block text-gray-700 font-medium mb-2">Course</label>
+          <input
+            type="text"
+            name="course"
+            value={formData.course}
+            onChange={handleChange}
+            className="w-full border rounded p-2"
+            placeholder="Enter your course (e.g., B.Tech)"
+            required
+          />
+        </div>
+
+        {/* User ID */}
+        <div className="mb-4">
+          <label className="block text-gray-700 font-medium mb-2">User ID</label>
+          <input
+            type="text"
+            name="userId"
+            value={formData.userId}
+            onChange={handleChange}
+            className="w-full border rounded p-2"
+            placeholder="Enter your User ID"
+            required
+          />
+        </div>
+
+        {/* Submit */}
         <button
           type="submit"
           className={`w-full py-2 px-4 rounded text-white ${
