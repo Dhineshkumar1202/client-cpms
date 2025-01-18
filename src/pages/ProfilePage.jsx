@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Profile = () => {
@@ -8,8 +9,9 @@ const Profile = () => {
     age: '',
     department: '',
   });
-
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,8 +20,12 @@ const Profile = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      const response = await axios.post('https://cpmsapp-q59f2p6k.b4a.run/api/profile', formData);
+      const response = await axios.post(
+        'https://cpmsapp-q59f2p6k.b4a.run/api/profile',
+        formData
+      );
       setMessage('Profile created successfully!');
       setFormData({
         name: '',
@@ -27,15 +33,28 @@ const Profile = () => {
         age: '',
         department: '',
       });
+      setTimeout(() => {
+        navigate('/dashboard'); 
+      }, 2000);
     } catch (error) {
       setMessage(`Error: ${error.response?.data?.error || 'Unable to create profile'}`);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="max-w-md mx-auto p-4 bg-white shadow-md rounded">
       <h2 className="text-2xl font-bold mb-4 text-center">Create Your Profile</h2>
-      {message && <p className="text-center mb-4">{message}</p>}
+      {message && (
+        <p
+          className={`text-center mb-4 ${
+            message.includes('success') ? 'text-green-500' : 'text-red-500'
+          }`}
+        >
+          {message}
+        </p>
+      )}
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-gray-700 font-medium mb-2">Name</label>
@@ -45,6 +64,7 @@ const Profile = () => {
             value={formData.name}
             onChange={handleChange}
             className="w-full border rounded p-2"
+            placeholder="Enter your name"
             required
           />
         </div>
@@ -56,6 +76,7 @@ const Profile = () => {
             value={formData.email}
             onChange={handleChange}
             className="w-full border rounded p-2"
+            placeholder="Enter your email"
             required
           />
         </div>
@@ -67,6 +88,7 @@ const Profile = () => {
             value={formData.age}
             onChange={handleChange}
             className="w-full border rounded p-2"
+            placeholder="Enter your age"
             required
           />
         </div>
@@ -78,14 +100,18 @@ const Profile = () => {
             value={formData.department}
             onChange={handleChange}
             className="w-full border rounded p-2"
+            placeholder="Enter your department"
             required
           />
         </div>
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+          className={`w-full py-2 px-4 rounded text-white ${
+            loading ? 'bg-blue-300' : 'bg-blue-500 hover:bg-blue-600'
+          }`}
+          disabled={loading}
         >
-          Submit
+          {loading ? 'Submitting...' : 'Submit'}
         </button>
       </form>
     </div>
