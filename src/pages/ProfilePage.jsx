@@ -40,7 +40,7 @@ const Profile = () => {
         userId: '',
       });
       setTimeout(() => {
-        navigate('/dashboard');
+        navigate('/student-dashboard');
       }, 2000);
     } catch (error) {
       setMessage(`Error: ${error.response?.data?.error || 'Unable to create profile'}`);
