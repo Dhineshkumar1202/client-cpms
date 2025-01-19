@@ -444,6 +444,103 @@ section.joblist .no-applications {
   text-align: center;
 }
 
+/* General container for the Job Listing */
+.job-listing {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Filter input styling */
+.filter-container {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+.filter-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+.filter-input:focus {
+  border-color: #3b82f6;
+}
+
+/* Job list styling */
+.job-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Individual job card */
+.job-card {
+  padding: 20px;
+  margin-bottom: 15px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: #ffffff;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Job details */
+.job-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.job-description {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+.job-subject {
+  font-size: 14px;
+  color: #9ca3af;
+  margin-bottom: 10px;
+}
+
+/* Apply button styling */
+.apply-button {
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #3b82f6;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+.apply-button:hover {
+  background-color: #2563eb;
+}
+
+/* Loading and error states */
+.loading {
+  text-align: center;
+  font-size: 18px;
+  color: #3b82f6;
+}
+
+.error {
+  text-align: center;
+  font-size: 18px;
+  color: #ef4444;
+}
+
+
+
 
 
 /* ===== Recruitment Status Section ===== */
