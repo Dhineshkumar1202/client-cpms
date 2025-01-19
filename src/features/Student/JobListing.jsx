@@ -39,7 +39,7 @@ const JobListing = () => {
       {/* Title */}
       <div className="flex items-center space-x-2 mb-4">
         <span>💼</span>
-        <h2 className="text-xl font-bold">Job Listings</h2>
+        {/* <h2 className="text-xl font-bold">Job Listings</h2> */}
       </div>
 
       {/* Search Input */}
