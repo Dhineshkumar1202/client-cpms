@@ -1,16 +1,19 @@
-import React from 'react';
+import React from "react";
 
-const Card = ({ title, description, link }) => {
+const Card = ({ title, description, subject, onApply }) => {
   return (
-    <div className="card">
-      <img src="https://via.placeholder.com/300x200" alt="Card Image" className="card-img" />
-      <div className="card-body">
-        <h3 className="card-title">{title}</h3>
-        <p className="card-text">{description}</p>
-        <a href={link} className="card-btn">Read More</a>
-      </div>
+    <div className="p-4 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
+      <h3 className="text-lg font-bold">{title}</h3>
+      <p className="text-gray-600">{description}</p>
+      <p className="text-sm text-blue-500">Subject: {subject}</p>
+      <button
+        onClick={onApply}
+        className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+      >
+        Apply Now
+      </button>
     </div>
   );
-};   
+};
 
 export default Card;
