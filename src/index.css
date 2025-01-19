@@ -539,6 +539,31 @@ section.joblist .no-applications {
   color: #ef4444;
 }
 
+/* Input styling */
+input[type="text"] {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+}
+
+/* No jobs message */
+.no-jobs-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 10px;
+}
+
+.no-jobs-message img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
 
 
 /* ===== Recruitment Status Section ===== */
