@@ -2,13 +2,13 @@ import React from "react";
 
 const Card = ({ title, description, subject, onApply }) => {
   return (
-    <div className="p-4 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
-      <h3 className="text-lg font-bold">{title}</h3>
-      <p className="text-gray-600">{description}</p>
-      <p className="text-sm text-blue-500">Subject: {subject}</p>
+    <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+      <h3 className="text-xl font-semibold text-gray-800 mb-2">{title}</h3>
+      <p className="text-gray-600 mb-2">{description}</p>
+      <p className="text-sm text-gray-500 mb-4">Subject: {subject}</p>
       <button
         onClick={onApply}
-        className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+        className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition-colors duration-200"
       >
         Apply Now
       </button>
