@@ -4,9 +4,9 @@ import Login from "./pages/Login";
 import HomePage from "./pages/Home";
 import Signup from "./pages/Register";
 import StudentDashboard from "./pages/StudentDashboardPage";
-import AdminDashboard from "./pages/AdminDahboardPage"; 
+import AdminDashboard from "./pages/AdminDahboardPage";  
 import CompanyDashboard from "./pages/CompanyDashboardPage";
-import ProfilePage from "./pages/ProfilePage"; // Import Profile Page
+import ProfilePage from "./pages/ProfilePage";
 import { useAuth } from "./context/AuthContext";
 
 const ProtectedRoute = ({ isAuthenticated, children, redirectTo = "/login" }) => {
