@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import AcademicRecords from '../features/Admin/AcademicRecords';
 import PlacementDriveReport from '../features/Admin/PlacementDrive';
 import RecruitmentStatusPage from '../features/Admin/RecruitmentStatusPage';
+import Navbar from '../components/Navbar';
 
 const AdminDashboardPage = () => {
   const navigate = useNavigate();
