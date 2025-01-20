@@ -23,12 +23,12 @@ const AdminDashboardPage = () => {
           <h1>Welcome to the Admin Dashboard</h1>
         </header>
 
-        <section className="dashboard-cards">
+        {/* <section className="dashboard-cards">
           <DashboardCard title="Total Students Placed" value="150" color="blue" icon="fa-user-check" />
           <DashboardCard title="Total Drives Conducted" value="20" color="green" icon="fa-calendar-check" />
           <DashboardCard title="Total Offers Made" value="100" color="yellow" icon="fa-check-circle" />
           <DashboardCard title="Active Placements" value="50" color="red" icon="fa-users" />
-        </section>
+        </section> */}
 
         <section className="section">
           <h2>Academic Records</h2>
