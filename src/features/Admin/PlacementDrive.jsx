@@ -16,7 +16,7 @@ const PlacementDrives = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const API_URL = "https://cpmsapp-q59f2p6k.b4a.run/api/placement-drives"; // Replace with your backend endpoint
+  const API_URL = "https://cpmsapp-q59f2p6k.b4a.run/api/placement-drives";
 
   // Fetch all placement drives
   const fetchPlacementDrives = async () => {
