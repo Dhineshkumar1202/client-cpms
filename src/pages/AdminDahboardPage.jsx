@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../components/Navbar/Navbar';
 import DashboardCard from '../components/Dashboardcard/DashboardCard';
 import AcademicRecords from '../features/Admin/AcademicRecords';
 import PlacementDriveReport from '../features/Admin/PlacementDrive';
