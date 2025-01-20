@@ -85,152 +85,75 @@ body {
   text-align: center;
 }
 
-/* index.css */
-
-/* Signup Page Container */
+/* General Styles */
 .signup-page {
-  background: #ffffff;
-  border: 1px solid #ced4da;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  width: 400px;
-  box-sizing: border-box;
-}
-
-/* Form Styles */
-.signup-page form {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f9;
+  padding: 20px;
 }
 
-.signup-page h2 {
-  margin-bottom: 20px;
-  text-align: center;
-  color: #343a40;
-}
-
-/* Input Fields */
-.signup-page input,
-.signup-page select {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ced4da;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-.signup-page input:focus,
-.signup-page select:focus {
-  border-color: #495057;
-  outline: none;
-}
-
-/* Button */
-.signup-page button {
-  padding: 10px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.signup-page button:hover {
-  background-color: #0056b3;
-}
-
-/* Error Messages */
-.signup-page .error {
-  color: #d9534f;
-  font-size: 14px;
-}
-
-/* Login Link */
-.signup-page .login-link {
-  margin-top: 15px;
-  text-align: center;
-  font-size: 14px;
-}
-
-.signup-page .login-link a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.signup-page .login-link a:hover {
-  text-decoration: underline;
-}
-
-
-
-
-/* Login Form Container */
 form {
-  background: #ffffff;
-  border: 1px solid #ced4da;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
   padding: 30px;
-  width: 400px;
-  box-sizing: border-box;
-  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
 }
 
 form h2 {
-  margin-bottom: 15px;
-  color: #343a40;
-}
-
-form p {
+  text-align: center;
   margin-bottom: 20px;
-  color: #6c757d;
+  font-size: 2rem;
+  color: #333;
 }
 
-/* Input Fields */
-form input {
+form input,
+form select {
   width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  margin-bottom: 15px;
-  border: 1px solid #ced4da;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
   border-radius: 5px;
+  font-size: 1rem;
   box-sizing: border-box;
 }
 
-form input:focus {
-  border-color: #495057;
+form input:focus,
+form select:focus {
+  border-color: #007bff;
   outline: none;
 }
 
-/* Button */
 form button {
   width: 100%;
-  padding: 10px;
-  font-size: 16px;
+  padding: 12px;
   background-color: #007bff;
-  color: #ffffff;
+  color: white;
   border: none;
   border-radius: 5px;
+  font-size: 1.1rem;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 form button:hover {
   background-color: #0056b3;
 }
 
-form button:disabled {
-  background-color: #6c757d;
-  cursor: not-allowed;
+form .error {
+  color: #d9534f;
+  font-size: 0.875rem;
+  margin-top: -8px;
+  margin-bottom: 8px;
 }
 
-/* Login Link */
 form .login-link {
+  text-align: center;
   margin-top: 15px;
-  font-size: 14px;
 }
 
 form .login-link a {
@@ -241,6 +164,20 @@ form .login-link a {
 form .login-link a:hover {
   text-decoration: underline;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  form {
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  form h2 {
+    font-size: 1.75rem;
+  }
+}
+
 
 
 
