@@ -8,7 +8,7 @@ import JobListing from '../features/Student/JobListing';
 const StudentDashboardPage = () => {
   return (
     <div>
-      <Navbar />  {/* Use Navbar Component Here */}
+      <Navbar /> 
       <main className="p-4">
         <section>
           <div className="flex items-center space-x-2 mb-2">
