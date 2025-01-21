@@ -51,19 +51,19 @@ const AdminDashboardPage = () => {
           />
         </section>
 
-        {/* Academic Records Section */}
+     
         <section className="section">
           <h2>Academic Records</h2>
           <AcademicRecords studentId="12345" />
         </section>
 
-        {/* Placement Drive Report Section */}
+   
         <section className="section">
           <h2>Placement Drive Report</h2>
           <PlacementDriveReport />
         </section>
 
-        {/* Recruitment Status Section */}
+     
         <section className="section">
           <h2>Recruitment Status</h2>
           <RecruitmentStatusPage />
