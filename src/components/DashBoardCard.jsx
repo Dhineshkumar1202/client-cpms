@@ -24,11 +24,13 @@ const DashboardCard = ({ title, value, color, icon }) => {
   );
 };
 
+
 DashboardCard.propTypes = {
   title: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   color: PropTypes.oneOf(["blue", "green", "yellow", "red"]).isRequired,
   icon: PropTypes.string.isRequired,
 };
+
 
 export default DashboardCard;
