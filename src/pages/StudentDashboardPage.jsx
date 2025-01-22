@@ -13,21 +13,21 @@ const StudentDashboardPage = () => {
             <span>📄</span>
             <h2 className="text-lg font-bold">Apply for New Jobs</h2>
           </div>
-          <JobForm />
+         
         </section>
         <section>
           <div className="flex items-center space-x-2 mb-2">
             <span>💼</span>
             <h2 className="text-lg font-bold">Job Listings</h2>
           </div>
-          <JobListing />
+      
         </section>
         <section>
           <div className="flex items-center space-x-2 mb-2">
             <span>📋</span>
             <h2 className="text-lg font-bold">Your Job Applications</h2>
           </div>
-          <JobList />
+         
         </section>
         <section>
           <div className="flex items-center space-x-2 mb-2">
