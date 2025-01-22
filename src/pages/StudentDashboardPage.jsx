@@ -1,9 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';  
-import JobForm from '../features/Student/JobForm';
-import JobList from '../features/jobs/JobList';
 import RecruitmentStatus from '../features/Student/RecruitmentStatus';
-import JobListing from '../features/jobs/JobListing';
+
 
 const StudentDashboardPage = () => {
   return (
