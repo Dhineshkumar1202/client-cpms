@@ -1,70 +1,34 @@
 import axios from "axios";
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const API_URL = "https://cpmsapp-q59f2p6k.b4a.run/api/jobs"; 
 
-
-export const fetchAllJobs = async (page = 1, limit = 10) => {
+export const fetchJobs = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/jobs`, {
-      params: { page, limit },
+    const response = await axios.get(API_URL, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`, 
+      },
     });
     return response.data;
   } catch (error) {
-    throw new Error(`Error fetching jobs: ${error.response?.data?.message || error.message}`);
+    throw new Error("Error fetching jobs.");
   }
 };
 
-
-
-
-export const fetchJobsByCompany = async (token) => {
+export const createJob = async (jobData) => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/jobs/company`, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    const response = await axios.post(
+      `${API_URL}/add`,
+      jobData,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`, 
+          "Content-Type": "application/json",
+        },
+      }
+    );
     return response.data;
   } catch (error) {
-    throw new Error(`Error fetching company jobs: ${error.response?.data?.message || error.message}`);
-  }
-};
-
-
-
-
-
-export const createJob = async (jobData, token) => {
-  try {
-    const response = await axios.post(`${API_BASE_URL}/jobs`, jobData, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    return response.data;
-  } catch (error) {
-    throw new Error(`Error creating job: ${error.response?.data?.message || error.message}`);
-  }
-};
-
-export const updateJob = async (jobId, jobData, token) => {
-  try {
-    const response = await axios.put(`${API_BASE_URL}/jobs/${jobId}`, jobData, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    return response.data;
-  } catch (error) {
-    throw new Error(`Error updating job: ${error.response?.data?.message || error.message}`);
-  }
-};
-
-
-
-
-
-export const deleteJob = async (jobId, token) => {
-  try {
-    const response = await axios.delete(`${API_BASE_URL}/jobs/${jobId}`, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    return response.data;
-  } catch (error) {
-    throw new Error(`Error deleting job: ${error.response?.data?.message || error.message}`);
+    throw new Error("Error creating the job.");
   }
 };
