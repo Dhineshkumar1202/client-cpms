@@ -1,18 +1,19 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import Navbar from '../components/Navbar'; 
-import DashboardCard from '../components/DashBoardCard'; 
-import AcademicRecords from '../features/Admin/AcademicRecords';
-import PlacementDriveReport from '../features/Admin/PlacementDrive';
-import RecruitmentStatusPage from '../features/Admin/RecruitmentStatusPage';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import DashboardCard from "../components/DashBoardCard";
+import AcademicRecords from "../features/Admin/AcademicRecords";
+import PlacementDriveReport from "../features/Admin/PlacementDrive";
+import RecruitmentStatusPage from "../features/Admin/RecruitmentStatusPage";
+import JobForm from "../features/jobs/JobForm"; 
 
 const AdminDashboardPage = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem('role');
-    localStorage.removeItem('token');
-    navigate('/login');
+    localStorage.removeItem("role");
+    localStorage.removeItem("token");
+    navigate("/login");
   };
 
   return (
@@ -51,22 +52,28 @@ const AdminDashboardPage = () => {
           />
         </section>
 
-     
+        {/* Academic Records Section */}
         <section className="section">
           <h2>Academic Records</h2>
           <AcademicRecords studentId="12345" />
         </section>
 
-   
+        {/* Placement Drive Report Section */}
         <section className="section">
           <h2>Placement Drive Report</h2>
           <PlacementDriveReport />
         </section>
 
-     
+        {/* Recruitment Status Section */}
         <section className="section">
           <h2>Recruitment Status</h2>
           <RecruitmentStatusPage />
+        </section>
+
+        {/* Job Posting Section */}
+        <section className="section">
+          <h2>Job Postings</h2>
+          <JobForm />
         </section>
       </div>
     </div>
