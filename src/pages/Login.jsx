@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import axios from "axios";
+import toast from "react-toastify";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -14,7 +15,7 @@ const LoginForm = () => {
     e.preventDefault();
 
     if (!email || !password) {
-      alert("Please fill in all fields.");
+      toast.error("Please fill in all fields.");
       return;
     }
 
@@ -34,52 +35,50 @@ const LoginForm = () => {
       // Update Auth Context
       setUser({ token, role });
 
-      alert("Login successful!");
+      toast.success("Login successful!");
 
       // Navigate based on role
       navigate(`/${role}-dashboard`);
     } catch (error) {
       const message = error.response?.data?.message || "Login failed.";
-      alert(message);
+      toast.error(message);
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <div className="login-container">
-      <form onSubmit={handleSubmit} className="login-form">
-        <h2 className="login-title">Welcome Back!</h2>
-        <p className="login-subtitle">Please log in to access your account.</p>
+    <form onSubmit={handleSubmit} className="p-4 space-y-4">
+      <h2 className="text-xl font-bold">Welcome Back!</h2>
+      <p>Please log in to access your account.</p>
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="login-input"
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="login-input"
-          required
-        />
-        <button
-          type="submit"
-          className="login-button"
-          disabled={isLoading}
-        >
-          {isLoading ? "Logging in..." : "Login"}
-        </button>
-        <div className="login-link">
-          Don't have an account? <a href="/signup">Sign Up</a>
-        </div>
-      </form>
-    </div>
+      <input
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="input"
+        required
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        className="input"
+        required
+      />
+      <button
+        type="submit"
+        className="btn btn-primary"
+        disabled={isLoading}
+      >
+        {isLoading ? "Logging in..." : "Login"}
+      </button>
+      <div>
+        Don't have an account? <a href="/signup">Sign Up</a>
+      </div>
+    </form>
   );
 };
 
