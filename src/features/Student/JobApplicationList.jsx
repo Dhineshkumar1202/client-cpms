@@ -26,7 +26,7 @@ const JobApplicationList = ({ studentId }) => {
 
   return (
     <div className="p-6 max-w-lg mx-auto bg-white rounded-lg shadow-md">
-      <h2 className="text-xl font-bold mb-4">Your Job Applications</h2>
+      <h2 className="text-xl font-bold mb-4"></h2>
       {applications.length > 0 ? (
         <ul className="space-y-4">
           {applications.map((app) => (

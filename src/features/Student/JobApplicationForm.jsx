@@ -33,7 +33,7 @@ const JobApplicationForm = () => {
 
   return (
     <div className="p-6 max-w-lg mx-auto bg-white rounded-lg shadow-md">
-      <h2 className="text-xl font-bold mb-4">Apply for a Job</h2>
+      <h2 className="text-xl font-bold mb-4"></h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="jobId" className="block font-medium mb-1">
