@@ -155,30 +155,5 @@ body {
   button:hover {
     background-color: #0056b3;
   }
-  
-  /* Login Link */
-  .login-link {
-    margin-top: 15px;
-    font-size: 14px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .login-link a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .login-link a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 480px) {
-    form {
-      width: 90%;
-      padding: 20px;
-    }
-  }
+ 
   
