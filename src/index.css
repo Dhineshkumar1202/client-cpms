@@ -1,5 +1,12 @@
-/* Home Page Css */
-/* Home Page Styling */
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Home Page Styles */
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -9,7 +16,6 @@
   padding: 20px;
   background: linear-gradient(135deg, #007bff, #5a67d8);
   color: #fff;
-  font-family: Arial, sans-serif;
 }
 
 .content {
@@ -61,7 +67,6 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
@@ -81,25 +86,7 @@
   }
 }
 
-
-
-
-
-
-
-/* Signup Page Css */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-/* Signup Page Container */
+/* Signup Page Styles */
 .signup-page {
   max-width: 400px;
   width: 90%;
@@ -107,22 +94,22 @@ body {
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: auto;
 }
 
 .signup-page h2 {
   font-size: 1.5rem;
-  color: #333333;
+  color: #333;
   margin-bottom: 1.5rem;
   text-align: center;
 }
 
-/* Form Inputs */
 .signup-page form input,
 .signup-page form select {
   width: 100%;
   padding: 0.8rem;
   margin-bottom: 1rem;
-  border: 1px solid #cccccc;
+  border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1rem;
   outline: none;
@@ -134,24 +121,16 @@ body {
   border-color: #007bff;
 }
 
-/* Error Messages */
 .signup-page .error {
   color: #ff4d4d;
   font-size: 0.875rem;
-  margin-top: -0.75rem;
   margin-bottom: 0.75rem;
   display: block;
 }
 
-/* Role Selector */
-.signup-page form select {
-  background: #f7f7f7;
-}
-
-/* Button */
 .signup-page button {
   background-color: #007bff;
-  color: #ffffff;
+  color: #fff;
   font-size: 1rem;
   font-weight: bold;
   padding: 0.8rem;
@@ -166,7 +145,6 @@ body {
   background-color: #0056b3;
 }
 
-/* Login Link */
 .signup-page .login-link {
   margin-top: 1.5rem;
   text-align: center;
@@ -183,7 +161,6 @@ body {
   text-decoration: underline;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .signup-page {
     padding: 1.5rem;
@@ -205,18 +182,7 @@ body {
   }
 }
 
-
-
-
-/* Login Page Styles Css */
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-}
-
-/* Center the login container */
+/* Login Page Styles */
 .login-container {
   display: flex;
   justify-content: center;
@@ -225,19 +191,15 @@ body {
   background-color: #f9fafb;
 }
 
-
-/* Login Page Styles */
-
-/* Login Form Styling */
 form {
   max-width: 400px;
-  margin: 50px auto;
+  width: 90%;
+  margin: auto;
   padding: 20px;
   background: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
 }
 
 form h2 {
