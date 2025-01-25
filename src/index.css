@@ -160,6 +160,9 @@ body {
   .login-link {
     margin-top: 15px;
     font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .login-link a {
