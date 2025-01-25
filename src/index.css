@@ -77,7 +77,6 @@ body {
 
   /* Signup Page */
 
-  /* Global Styles */
 body {
     margin: 0;
     padding: 0;
@@ -165,7 +164,9 @@ form {
     max-width: 400px;
     width: 100%;
     text-align: center;
+    justify-content: center;
     align-items: center;
+   
   }
   
   /* Form Title */
