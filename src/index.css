@@ -136,82 +136,88 @@ body {
   background-color: #f9fafb;
 }
 
-/* Login form styling */
-.login-form {
-  background-color: #ffffff;
-  padding: 2rem;
+
+/* Login Page Styles */
+
+/* Login Form Styling */
+form {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
-  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-.login-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: #333333;
+form h2 {
+  font-size: 24px;
+  color: #333;
   text-align: center;
+  margin-bottom: 10px;
 }
 
-.login-subtitle {
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-  color: #666666;
+form p {
+  font-size: 14px;
+  color: #555;
   text-align: center;
+  margin-bottom: 20px;
 }
 
-.login-input {
+input[type="email"],
+input[type="password"] {
   width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
+  padding: 12px 15px;
+  margin: 10px 0;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
+  border-radius: 5px;
+  font-size: 16px;
   box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.login-input:focus {
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
   outline: none;
-  border-color: #4a90e2;
-  box-shadow: 0 0 4px rgba(74, 144, 226, 0.4);
 }
 
-.login-button {
+button[type="submit"] {
   width: 100%;
-  padding: 0.75rem;
-  background-color: #4a90e2;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
+  padding: 12px 15px;
+  background: #007bff;
+  color: #fff;
+  font-size: 16px;
   font-weight: bold;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
-.login-button:hover {
-  background-color: #357abd;
+button[type="submit"]:hover {
+  background: #0056b3;
 }
 
-.login-button:disabled {
-  background-color: #a3c1e6;
+button[type="submit"]:disabled {
+  background: #ccc;
   cursor: not-allowed;
 }
 
 .login-link {
-  margin-top: 1rem;
   text-align: center;
-  font-size: 0.875rem;
-  color: #666666;
+  margin-top: 15px;
+  font-size: 14px;
 }
 
 .login-link a {
-  color: #4a90e2;
+  color: #007bff;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .login-link a:hover {
-  text-decoration: underline;
+  color: #0056b3;
 }
