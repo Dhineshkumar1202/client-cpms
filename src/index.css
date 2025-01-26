@@ -6,6 +6,7 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0;
+  height: auto;
 }
 
 .signup-page, form {
