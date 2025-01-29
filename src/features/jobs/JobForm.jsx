@@ -9,7 +9,9 @@ const JobForm = () => {
     location: "",
     applicationDeadline: "",
   });
+
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,9 +20,12 @@ const JobForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); 
+    setMessage("");
+
     try {
-      const response = await createJob(job);
-      setMessage("Job posted successfully!");
+      await createJob(job);
+      setMessage("✅ Job posted successfully!");
       setJob({
         title: "",
         description: "",
@@ -29,74 +34,39 @@ const JobForm = () => {
         applicationDeadline: "",
       });
     } catch (error) {
-      setMessage("Error posting the job: " + error.message);
+      setMessage("❌ Error posting the job: " + error.response?.data?.message || error.message);
+    } finally {
+      setLoading(false); 
     }
   };
 
   return (
     <div className="p-6 max-w-lg mx-auto bg-white shadow-md rounded-md">
       <h2 className="text-xl font-semibold mb-4">Post a New Job</h2>
-      {message && <p className="text-green-600">{message}</p>}
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label className="block text-gray-700">Title</label>
-          <input
-            type="text"
-            name="title"
-            value={job.title}
-            onChange={handleChange}
-            className="w-full border-gray-300 rounded-md shadow-sm"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700">Description</label>
-          <textarea
-            name="description"
-            value={job.description}
-            onChange={handleChange}
-            className="w-full border-gray-300 rounded-md shadow-sm"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700">Subject</label>
-          <input
-            type="text"
-            name="subject"
-            value={job.subject}
-            onChange={handleChange}
-            className="w-full border-gray-300 rounded-md shadow-sm"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700">Location</label>
-          <input
-            type="text"
-            name="location"
-            value={job.location}
-            onChange={handleChange}
-            className="w-full border-gray-300 rounded-md shadow-sm"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700">Application Deadline</label>
-          <input
-            type="date"
-            name="applicationDeadline"
-            value={job.applicationDeadline}
-            onChange={handleChange}
-            className="w-full border-gray-300 rounded-md shadow-sm"
-            required
-          />
-        </div>
+      
+      {message && <p className={`text-center ${message.includes("Error") ? "text-red-600" : "text-green-600"}`}>{message}</p>}
+
+      <form onSubmit={handleSubmit} className="space-y-4">
+        {["title", "description", "subject", "location", "applicationDeadline"].map((field, index) => (
+          <div key={index}>
+            <label className="block text-gray-700 capitalize">{field.replace(/([A-Z])/g, " $1")}</label>
+            <input
+              type={field === "applicationDeadline" ? "date" : "text"}
+              name={field}
+              value={job[field]}
+              onChange={handleChange}
+              className="w-full border border-gray-300 rounded-md p-2"
+              required
+            />
+          </div>
+        ))}
+
         <button
           type="submit"
-          className="bg-blue-500 text-white py-2 px-4 rounded-md"
+          className="bg-blue-500 text-white py-2 px-4 rounded-md w-full"
+          disabled={loading}
         >
-          Post Job
+          {loading ? "Posting..." : "Post Job"}
         </button>
       </form>
     </div>
