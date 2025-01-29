@@ -18,7 +18,7 @@ const JobApplicationForm = () => {
     }
 
     const formData = new FormData();
-    formData.append("studentId", studentId);  // ✅ Append studentId
+    formData.append("studentId", studentId);  
     formData.append("jobId", jobId);
     formData.append("coverLetter", coverLetter);
     formData.append("file", resume);
@@ -26,7 +26,7 @@ const JobApplicationForm = () => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "https://cpmsapp-q59f2p6k.b4a.run/api/job-applications",  // ✅ Fixed endpoint
+        "https://cpmsapp-q59f2p6k.b4a.run/api/job-applications",  
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
