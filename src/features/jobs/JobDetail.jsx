@@ -36,7 +36,7 @@ const JobDetails = () => {
   const handleDelete = async () => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`https://appcollege-jsbz09o3.b4a.run/api/jobs/${jobId}`, {
+      await axios.delete(`https://cpmsapp-q59f2p6k.b4a.run/api/jobs/${jobId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
