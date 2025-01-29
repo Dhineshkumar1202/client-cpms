@@ -18,7 +18,7 @@ export const fetchJobs = async () => {
 export const createJob = async (jobData) => {
   try {
     const response = await axios.post(
-      `${API_URL}/`,
+      `${API_URL}`,
       jobData,
       {
         headers: {
