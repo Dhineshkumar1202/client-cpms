@@ -25,6 +25,7 @@ export const fetchJobs = async () => {
 export const createJob = async (jobData) => {
   try {
     const token = localStorage.getItem("token");
+    console.log("Token:", token);
     if (!token) {
       throw new Error("User is not authenticated.");
     }
