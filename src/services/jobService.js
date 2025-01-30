@@ -6,27 +6,30 @@ export const fetchJobs = async () => {
   try {
     const token = localStorage.getItem("token");
     if (!token) {
+      console.error("Authentication error: No token found.");
       throw new Error("User is not authenticated.");
     }
 
     const response = await axios.get(API_URL, {
       headers: {
-        Authorization: `Bearer ${token}`, 
+        Authorization: token.startsWith("Bearer ") ? token : `Bearer ${token}`,
       },
     });
 
     return response.data;
   } catch (error) {
-    console.error("Error fetching jobs:", error.response ? error.response.data : error.message);
-    throw new Error("Error fetching jobs.");
+    console.error("Error fetching jobs:", error.response?.data || error.message);
+    throw new Error(error.response?.data?.message || "Error fetching jobs.");
   }
 };
 
 export const createJob = async (jobData) => {
   try {
     const token = localStorage.getItem("token");
-    console.log("Token:", token);
+    console.log("Stored Token:", token);
+    
     if (!token) {
+      console.error("Authentication error: No token found.");
       throw new Error("User is not authenticated.");
     }
 
@@ -35,7 +38,7 @@ export const createJob = async (jobData) => {
       jobData,
       {
         headers: {
-          Authorization: `Bearer ${token}`, 
+          Authorization: token.startsWith("Bearer ") ? token : `Bearer ${token}`,
           "Content-Type": "application/json",
         },
       }
@@ -43,7 +46,7 @@ export const createJob = async (jobData) => {
     
     return response.data;
   } catch (error) {
-    console.error("Job creation error:", error.response ? error.response.data : error.message);
+    console.error("Job creation error:", error.response?.data || error.message);
     throw new Error(error.response?.data?.message || "Error creating the job.");
   }
 };
