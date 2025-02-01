@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import DashboardCard from "../components/DashBoardCard";
@@ -10,26 +10,11 @@ import JobPosting from "../features/Admin/JobPosting";
 
 const AdminDashboardPage = () => {
   const navigate = useNavigate();
-  const [stats, setStats] = useState({
-    studentsPlaced: 0,
-    drivesConducted: 0,
-    offersMade: 0,
-    activePlacements: 0
-  });
-
-  // Fetch Dashboard Stats (Replace with actual API endpoint)
-  useEffect(() => {
-    fetch("https://cpmsapp-q59f2p6k.b4a.run/dashboard-stats")
-      .then(response => response.json())
-      .then(data => setStats(data))
-      .catch(error => console.error("Error fetching data:", error));
-  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("role");
     localStorage.removeItem("token");
     navigate("/login");
-    window.location.reload();  // Ensures full UI reset
   };
 
   return (
@@ -42,10 +27,30 @@ const AdminDashboardPage = () => {
 
         {/* Dashboard Cards */}
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 dashboard-cards">
-          <DashboardCard title="Total Students Placed" value={stats.studentsPlaced} color="blue" icon="fa-user-check" />
-          <DashboardCard title="Total Drives Conducted" value={stats.drivesConducted} color="green" icon="fa-calendar-check" />
-          <DashboardCard title="Total Offers Made" value={stats.offersMade} color="yellow" icon="fa-check-circle" />
-          <DashboardCard title="Active Placements" value={stats.activePlacements} color="red" icon="fa-users" />
+          <DashboardCard
+            title="Total Students Placed"
+            value="150"
+            color="blue"
+            icon="fa-user-check"
+          />
+          <DashboardCard
+            title="Total Drives Conducted"
+            value="20"
+            color="green"
+            icon="fa-calendar-check"
+          />
+          <DashboardCard
+            title="Total Offers Made"
+            value="100"
+            color="yellow"
+            icon="fa-check-circle"
+          />
+          <DashboardCard
+            title="Active Placements"
+            value="50"
+            color="red"
+            icon="fa-users"
+          />
         </section>
 
         {/* Academic Records Section */}
@@ -69,8 +74,8 @@ const AdminDashboardPage = () => {
         {/* Job Posting Section */}
         <section className="section">
           <h2>Job Postings</h2>
-          <JobForm />  
-          <JobPosting /> {/* Now included */}
+          <JobForm />
+          <JobPosting/>
         </section>
       </div>
     </div>
