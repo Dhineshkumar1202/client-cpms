@@ -8,7 +8,7 @@ import AdminDashboard from "./pages/AdminDahboardPage";
 import CompanyDashboard from "./pages/CompanyDashboardPage";
 import ProfilePage from "./pages/ProfilePage";
 import JobList from "./features/jobs/JobList";
-import JobForm from "./features/jobs/JobForm";
+import JobForm from "./features/Admin/JobForm";
 import JobDetail from "./features/jobs/JobDetail";
 import { useAuth } from "./context/AuthContext";
 
