@@ -6,7 +6,7 @@ import AcademicRecords from "../features/Admin/AcademicRecords";
 import PlacementDriveReport from "../features/Admin/PlacementDrive";
 import RecruitmentStatusPage from "../features/Admin/RecruitmentStatusPage";
 import JobForm from "../features/Admin/JobForm"; 
-import JobPosting from "../features/Admin/JobPosting";
+
 
 const AdminDashboardPage = () => {
   const navigate = useNavigate();
@@ -75,7 +75,7 @@ const AdminDashboardPage = () => {
         <section className="section">
           <h2>Job Postings</h2>
           <JobForm />
-          <JobPosting/>
+     
         </section>
       </div>
     </div>
