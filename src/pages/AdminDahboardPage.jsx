@@ -17,30 +17,13 @@ const AdminDashboardPage = () => {
     activePlacements: 0
   });
 
+  // Fetch Dashboard Stats (Replace with actual API endpoint)
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      console.error("No token found! User is not authenticated.");
-      navigate("/login"); // Redirect to login page
-      return;
-    }
-
-    fetch("https://cpmsapp-q59f2p6k.b4a.run/dashboard-stats", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`, // Send token for authentication
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to fetch dashboard stats");
-        }
-        return response.json();
-      })
-      .then((data) => setStats(data))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, [navigate]);
+    fetch("https://cpmsapp-q59f2p6k.b4a.run/dashboard-stats")
+      .then(response => response.json())
+      .then(data => setStats(data))
+      .catch(error => console.error("Error fetching data:", error));
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("role");
