@@ -12,7 +12,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: linear-gradient(to right, #1e3a8a, #2563eb);
+    /* background: linear-gradient(to right, #1e3a8a, #2563eb); */
     padding: 2rem;
     color: white;
   }
