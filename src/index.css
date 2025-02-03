@@ -1,118 +1,125 @@
-
-
-
-/* Global Reset */
+/* Reset default margin and padding */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Dashboard Main Container */
+.dashboard-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+/* Header Styling */
+.dashboard-header {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 2rem;
+}
+
+/* Dashboard Cards Grid */
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Responsive Grid */
+@media (min-width: 768px) {
+  .dashboard-cards {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  /* Main Page Layout */
-  body {
-    background-color: #f8f9fa;
-    color: #333;
+}
+
+@media (min-width: 1024px) {
+  .dashboard-cards {
+    grid-template-columns: repeat(4, 1fr);
   }
-  
-  /* Student Dashboard Container */
-  .student-dashboard {
-    max-width: 1200px;
-    margin: auto;
-  }
-  
-  /* Header Styling */
-  .student-dashboard header h1 {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #1f2937;
-    margin-bottom: 1.5rem;
-  }
-  
-  /* Section Styling */
-  .student-dashboard section {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1.5rem;
-  }
-  
-  /* Dashboard Cards Grid */
-  .student-dashboard .grid {
-    display: grid;
-    gap: 1.5rem;
-  }
-  
-  /* Responsive Grid */
-  @media (min-width: 768px) {
-    .student-dashboard .grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .student-dashboard .grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  
-  /* Job Application Section */
-  .student-dashboard section h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #374151;
-    margin-bottom: 1rem;
-  }
-  
-  /* Job Application Form */
-  .job-application-form {
-    background: #f1f5f9;
-    padding: 1.5rem;
-    border-radius: 10px;
-  }
-  
-  /* Navbar Styling */
-  .navbar {
-    background: #1e3a8a;
-    padding: 1rem;
-    color: white;
-    text-align: center;
-    font-size: 1.2rem;
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Button Styling */
-  button {
-    background: #2563eb;
-    color: white;
-    padding: 0.6rem 1.2rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  
-  button:hover {
-    background: #1e40af;
-  }
-  
-  /* Card Component Styling */
-  .card {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    transition: transform 0.2s;
-  }
-  
-  .card:hover {
-    transform: scale(1.05);
-  }
-  
+}
+
+/* Card Styling */
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon Styling inside Cards */
+.card-icon {
+  font-size: 2rem;
+  color: #2563eb;
+}
+
+/* Card Text */
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.card-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1e40af;
+}
+
+/* Section Styling */
+.dashboard-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+/* Section Headings */
+.dashboard-section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 1rem;
+}
+
+/* Navbar Styling */
+.navbar {
+  background: #1e3a8a;
+  padding: 1rem;
+  color: white;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styling */
+button {
+  background: #2563eb;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background: #1e40af;
+}
