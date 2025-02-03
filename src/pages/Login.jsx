@@ -56,32 +56,23 @@ const LoginForm = () => {
     }
   };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <h2>Welcome Back!</h2>
-      <p>Please log in to access your account.</p>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      <button type="submit" disabled={isLoading}>
-        {isLoading ? "Logging in..." : "Login"}
-      </button>
-      <div className="login-link">
-        Don't have an account? <a href="/signup">Sign Up</a>
+
+    return (
+      <div className="login-page">
+        <form onSubmit={handleSubmit}>
+          <h2>Welcome Back!</h2>
+          <p>Please log in to access your account.</p>
+          <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          <button type="submit" disabled={isLoading}>{isLoading ? "Logging in..." : "Login"}</button>
+          <div className="login-link">
+            Don't have an account? <a href="/signup">Sign Up</a>
+          </div>
+        </form>
       </div>
-    </form>
-  );
+    );
+    
+
 };
 
 export default LoginForm;
