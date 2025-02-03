@@ -1,0 +1,107 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Signup Page Container */
+  .signup-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #1e3a8a, #2563eb);
+    padding: 2rem;
+  }
+  
+  /* Signup Form */
+  .signup-page form {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  /* Form Heading */
+  .signup-page h2 {
+    font-size: 1.8rem;
+    color: #1e3a8a;
+    margin-bottom: 1rem;
+  }
+  
+  /* Input Fields */
+  .signup-page input,
+  .signup-page select {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.6rem 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  /* Input Focus */
+  .signup-page input:focus,
+  .signup-page select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0px 0px 5px rgba(37, 99, 235, 0.5);
+  }
+  
+  /* Error Messages */
+  .signup-page .error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: -0.5rem;
+    display: block;
+  }
+  
+  /* Signup Button */
+  .signup-page button {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 1rem;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .signup-page button:hover {
+    background: #1e40af;
+  }
+  
+  /* Login Link */
+  .signup-page .login-link {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #374151;
+  }
+  
+  .signup-page .login-link a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .signup-page .login-link a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 480px) {
+    .signup-page form {
+      width: 90%;
+      padding: 1.5rem;
+    }
+  }
+  
