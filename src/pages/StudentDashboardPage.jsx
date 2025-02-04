@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import Card from "../components/Card"; // Import reusable Card component
+import Card from "../components/Card"; 
 import JobApplicationForm from "../features/Student/JobApplicationForm";
 import JobApplicationList from "../features/Student/JobApplicationList";
-import { FaFileAlt, FaCalendarCheck, FaCheckCircle } from "react-icons/fa"; // Import icons
+import { FaFileAlt, FaCalendarCheck, FaCheckCircle } from "react-icons/fa"; 
+import JobListing from "../features/Student/JobListing";
 
 const StudentDashboardPage = () => {
   const studentId = "12345";
@@ -51,6 +52,12 @@ const StudentDashboardPage = () => {
       <section>
         <h2 className="text-2xl font-bold text-gray-700 mb-4">Your Job Applications</h2>
         <JobApplicationList studentId={studentId} />
+      </section>
+
+      {/* JobListing */}
+      <section>
+        <h2 className="text-2xl font-bold text-gray-700 mb-4">JobListings</h2>
+        <JobListing />
       </section>
     </div>
   );
