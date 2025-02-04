@@ -131,13 +131,19 @@ const SignupPage = () => {
 
                 {formData.role === "student" && (
                     <>
-                        <input
+                        <select
                             name="additionalData.course"
                             placeholder="Course"
                             value={formData.additionalData.course}
                             onChange={handleChange}
                             aria-label="Course"
-                        />
+                         >
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Information Technology">Information Technology</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="EMechanical">Mechanical</option>
+                </select>
+
                         {errors.course && <span className="error">{errors.course}</span>}
 
                         <input
