@@ -11,6 +11,8 @@ const JobListing = () => {
     const loadJobs = async () => {
       try {
         const data = await fetchJobs();
+        console.log(data);
+        
         if (data && Array.isArray(data)) {
           setJobs(data);
         } else {

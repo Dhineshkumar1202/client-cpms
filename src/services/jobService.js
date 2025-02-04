@@ -10,7 +10,7 @@ export const fetchJobs = async () => {
       throw new Error("User is not authenticated.");
     }
 
-    const response = await axios.get(API_URL, {
+    const response = await axios.get(`${API_URL}/get`, {
       headers: {
         Authorization: token.startsWith("Bearer ") ? token : `Bearer ${token}`,
       },
