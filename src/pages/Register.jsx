@@ -137,7 +137,7 @@ const SignupPage = () => {
                             onChange={handleChange}
                             aria-label="Course"
                          >
-                    <option aria-readonly ="true">Select your course</option>
+                    <option>Select your course</option>
                     <option value="Computer Science">Computer Science</option>
                     <option value="Information Technology">Information Technology</option>
                     <option value="Electronics">Electronics</option>
@@ -146,14 +146,21 @@ const SignupPage = () => {
 
                         {errors.course && <span className="error">{errors.course}</span>}
 
-                        <input
+                        <select
                             name="additionalData.year"
                             placeholder="Year"
-                            type="number"
+                            type="Year"
                             value={formData.additionalData.year}
                             onChange={handleChange}
                             aria-label="Year"
-                        />
+
+                            >
+                    <option>Course Duration</option>
+                    <option value="1st Year">1st Year</option>
+                    <option value="2nd Year">2nd Year</option>
+                    <option value="3rd Year">3rd Year</option>
+                    <option value="4th Year">4th Year</option>
+                    </select>
                         {errors.year && <span className="error">{errors.year}</span>}
                     </>
                 )}
