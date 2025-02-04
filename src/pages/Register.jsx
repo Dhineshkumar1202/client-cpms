@@ -133,11 +133,11 @@ const SignupPage = () => {
                     <>
                         <select
                             name="additionalData.course"
-                            placeholder="Course"
                             value={formData.additionalData.course}
                             onChange={handleChange}
                             aria-label="Course"
                          >
+                    <option aria-readonly ="true">Select your course</option>
                     <option value="Computer Science">Computer Science</option>
                     <option value="Information Technology">Information Technology</option>
                     <option value="Electronics">Electronics</option>
