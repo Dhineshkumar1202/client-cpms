@@ -5,6 +5,10 @@ const API_URL = "https://cpmsapp-q59f2p6k.b4a.run/api/jobs";
 export const fetchJobs = async () => {
   try {
     const token = localStorage.getItem("token");
+
+    // Debugging: Check if token is stored properly
+    console.log("Frontend Token:", token);
+
     if (!token) {
       console.error("Authentication error: No token found.");
       throw new Error("User is not authenticated.");
@@ -12,7 +16,7 @@ export const fetchJobs = async () => {
 
     const response = await axios.get(`${API_URL}/get`, {
       headers: {
-        Authorization: token.startsWith("Bearer ") ? token : `Bearer ${token}`,
+        Authorization: `Bearer ${token}`, // Ensure proper format
       },
     });
 
@@ -26,6 +30,8 @@ export const fetchJobs = async () => {
 export const createJob = async (jobData) => {
   try {
     const token = localStorage.getItem("token");
+
+    // Debugging: Check token before sending request
     console.log("Stored Token:", token);
     
     if (!token) {
@@ -38,7 +44,7 @@ export const createJob = async (jobData) => {
       jobData,
       {
         headers: {
-          Authorization: token.startsWith("Bearer ") ? token : `Bearer ${token}`,
+          Authorization: `Bearer ${token}`, // Ensure correct format
           "Content-Type": "application/json",
         },
       }
