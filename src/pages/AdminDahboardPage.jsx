@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import Card from "../components/Card"; // Import reusable Card component
+import Card from "../components/Card"; 
 import AcademicRecords from "../features/Admin/AcademicRecords";
 import PlacementDriveReport from "../features/Admin/PlacementDrive";
 import RecruitmentStatusPage from "../features/Admin/RecruitmentStatusPage";
 import JobForm from "../features/Admin/JobForm";
-import { FaUserCheck, FaCalendarCheck, FaCheckCircle, FaUsers } from "react-icons/fa"; // Import icons
+import { FaUserCheck, FaCalendarCheck, FaCheckCircle, FaUsers } from "react-icons/fa"; 
 
 const AdminDashboardPage = () => {
   const navigate = useNavigate();
