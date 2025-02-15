@@ -1,0 +1,169 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+  }
+  
+  /* Body Styles */
+  body {
+    background-color: #f4f4f9;
+    color: #333;
+  }
+  
+  /* Admin Dashboard Layout */
+  .admin-dashboard {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    width: 250px;
+    background-color: #1f2937; /* Dark Gray */
+    color: white;
+    padding: 20px;
+    min-height: 100vh;
+  }
+  
+  .sidebar h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 15px;
+  }
+  
+  .sidebar ul li a,
+  .sidebar ul li button {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background 0.3s;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .sidebar ul li a:hover,
+  .sidebar ul li button:hover {
+    background-color: #374151; /* Lighter Dark */
+  }
+  
+  /* Navbar Styles */
+  .navbar {
+    background-color: #2563eb; /* Blue */
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+  
+  .navbar h1 {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .navbar button {
+    background-color: #dc2626; /* Red */
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .navbar button:hover {
+    background-color: #b91c1c;
+  }
+  
+  /* Dashboard Content */
+  .dashboard-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .dashboard-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Dashboard Cards */
+  .dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .card h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2563eb; /* Blue */
+  }
+  
+  .card-icon {
+    font-size: 30px;
+    color: #4f46e5; /* Blue */
+    margin-bottom: 10px;
+  }
+  
+  /* Section Headings */
+  .section-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+    color: #374151;
+  }
+  
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .admin-dashboard {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+      padding: 15px;
+      text-align: center;
+    }
+  
+    .sidebar ul li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  
+    .dashboard-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+  
