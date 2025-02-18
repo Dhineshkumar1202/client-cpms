@@ -28,35 +28,50 @@ const StudentDashboardPage = () => {
   }, []);
 
   return (
-    <div className="student-dashboard p-8">
+    <div style={{ padding: "32px" }}>
       <Navbar />
 
-      <header className="mb-6">
-        <h1 className="text-3xl font-bold text-gray-800">Welcome to the Student Dashboard</h1>
+      <header style={{ marginBottom: "24px" }}>
+        <h1 style={{ fontSize: "24px", fontWeight: "bold", color: "#2d3748" }}>
+          Welcome to the Student Dashboard
+        </h1>
       </header>
 
       {/* Dashboard Cards */}
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+      <section
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr",
+          gap: "24px",
+          marginBottom: "24px",
+        }}
+      >
         <Card title="Applied Jobs" value={stats.appliedJobs} icon={<FaFileAlt />} />
         <Card title="Upcoming Interviews" value={stats.upcomingInterviews} icon={<FaCalendarCheck />} />
         <Card title="Selected Offers" value={stats.selectedOffers} icon={<FaCheckCircle />} />
       </section>
 
       {/* Apply for Job */}
-      <section className="mb-6">
-        <h2 className="text-2xl font-bold text-gray-700 mb-4">Apply for a Job</h2>
+      <section style={{ marginBottom: "24px" }}>
+        <h2 style={{ fontSize: "20px", fontWeight: "bold", color: "#4a5568", marginBottom: "16px" }}>
+          Apply for a Job
+        </h2>
         <JobApplicationForm />
       </section>
 
       {/* Job Applications List */}
       <section>
-        <h2 className="text-2xl font-bold text-gray-700 mb-4">Your Job Applications</h2>
+        <h2 style={{ fontSize: "20px", fontWeight: "bold", color: "#4a5568", marginBottom: "16px" }}>
+          Your Job Applications
+        </h2>
         <JobApplicationList studentId={studentId} />
       </section>
 
-      {/* JobListing */}
+      {/* Job Listings */}
       <section>
-        <h2 className="text-2xl font-bold text-gray-700 mb-4">JobListings</h2>
+        <h2 style={{ fontSize: "20px", fontWeight: "bold", color: "#4a5568", marginBottom: "16px" }}>
+          Job Listings
+        </h2>
         <JobListing />
       </section>
     </div>
